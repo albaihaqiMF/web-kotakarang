@@ -4,18 +4,18 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class AdminLayout extends Component
+class AppLogo extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public $title;
-    public function __construct($title = null)
+    public $size, $label;
+    public function __construct($size = null, $label = null)
     {
-        $app_title = "Kelurahan Kota Karang";
-        $this->title = $title !== null ? $title . " | " . $app_title : $app_title;
+        $this->size = $size === null ? 30 : $size;
+        $this->label = $label === "false" ? false : true;
     }
 
     /**
@@ -25,6 +25,6 @@ class AdminLayout extends Component
      */
     public function render()
     {
-        return view('layouts.admin');
+        return view('components.application-logo');
     }
 }

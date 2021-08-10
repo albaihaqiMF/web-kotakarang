@@ -4,18 +4,16 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class AdminLayout extends Component
+class AdminSidebar extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public $title;
-    public function __construct($title = null)
+    public function __construct()
     {
-        $app_title = "Kelurahan Kota Karang";
-        $this->title = $title !== null ? $title . " | " . $app_title : $app_title;
+        //
     }
 
     /**
@@ -25,6 +23,6 @@ class AdminLayout extends Component
      */
     public function render()
     {
-        return view('layouts.admin');
+        return view('layouts.sidebar');
     }
 }

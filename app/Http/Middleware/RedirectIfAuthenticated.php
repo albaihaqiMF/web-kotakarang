@@ -25,14 +25,12 @@ class RedirectIfAuthenticated
             if (Auth::guard($guard)->check()) {
                 $user_role = Auth::user()->role;
                 switch ($user_role) {
-                    case '2':
-                        return redirect(RouteServiceProvider::ADMIN);
-                        break;
-
                     case '1':
+                        return redirect(RouteServiceProvider::USER);
+                        break;
+                    case '2':
                         return redirect(RouteServiceProvider::HOME);
                         break;
-
                     default:
                         return redirect('/');
                 }

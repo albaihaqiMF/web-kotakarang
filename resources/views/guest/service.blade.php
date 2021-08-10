@@ -1,3 +1,3 @@
 <x-guest-layout>
-    <h1>Welcome Page</h1>
+    <h1>Service Page</h1>
 </x-guest-layout>

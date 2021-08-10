@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\RouteAdminController;
+use App\Http\Controllers\Guest\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,15 +14,33 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// --------------------------------------------------------------------------- //
+// --------------------------------GUEST ROUTE-------------------------------- //
+// --------------------------------------------------------------------------- //
+Route::get('/', [HomeController::class, 'beranda'])->name('welcome');
+Route::get('/service', [HomeController::class, 'service'])->name('service');
+Route::get('/about-us', [HomeController::class, 'about'])->name('about');
+Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
 
-Route::get('/', function () {
-    return view('welcome');
+
+
+// --------------------------------------------------------------------------- //
+// --------------------------------ADMIN ROUTE-------------------------------- //
+// --------------------------------------------------------------------------- //
+Route::group(['prefix' => 'admin',  'middleware' => ['auth','role:2']], function () {
+    Route::get('/', [RouteAdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/data-penduduk', [RouteAdminController::class, 'dataPenduduk'])->name('admin.data-penduduk');
+    Route::get('/map', [RouteAdminController::class, 'map'])->name('admin.map');
 });
 
-Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function()
-{
-    Route::view('/', 'admin.index')->name('dashboard');
+
+// --------------------------------------------------------------------------- //
+// ---------------------------------USER ROUTE-------------------------------- //
+// --------------------------------------------------------------------------- //
+Route::middleware(['auth'])->group(function () {
+    Route::view('/dashboard', 'dashboard')->name('dashboard');
 });
+
 
 
 require __DIR__ . '/auth.php';

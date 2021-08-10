@@ -1,3 +1,6 @@
-<div class="flex items-center">
-    <h2 class="text-black">Kota Karang</h2>
+<div class="flex flex-col items-center">
+    <img src="{{ asset('image/logo.png') }}" alt="Kota Bandar Lampung" width="{{ $size }}" class="mr-2">
+    @if ($label)
+    <h5 align="center">Kelurahan Kota Karang</h5>
+    @endif
 </div>

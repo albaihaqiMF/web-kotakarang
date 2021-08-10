@@ -1,3 +1,3 @@
 <x-guest-layout>
-    <h1>Welcome Page</h1>
+    <h1>Contact Us Page</h1>
 </x-guest-layout>
