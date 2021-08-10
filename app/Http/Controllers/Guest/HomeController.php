@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function beranda()
     {
-         return view('welcome');
+         return view('guest.welcome');
     }
     public function service()
     {

@@ -27,7 +27,7 @@ Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
 // --------------------------------------------------------------------------- //
 // --------------------------------ADMIN ROUTE-------------------------------- //
 // --------------------------------------------------------------------------- //
-Route::group(['prefix' => 'admin',  'middleware' => ['auth','role:2']], function () {
+Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'role:2']], function () {
     Route::get('/', [RouteAdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/data-penduduk', [RouteAdminController::class, 'dataPenduduk'])->name('admin.data-penduduk');
     Route::get('/map', [RouteAdminController::class, 'map'])->name('admin.map');
@@ -41,6 +41,14 @@ Route::middleware(['auth'])->group(function () {
     Route::view('/dashboard', 'dashboard')->name('dashboard');
 });
 
+// --------------------------------------------------------------------------- //
+// ---------------------------------API ROUTE--------------------------------- //
+// --------------------------------------------------------------------------- //
+Route::prefix('v1/api')->group(function () {
+    Route::get('/', function () {
+        return "a";
+    });
+});
 
 
 require __DIR__ . '/auth.php';

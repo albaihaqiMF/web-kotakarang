@@ -22,9 +22,17 @@
             </div>
             <!-- Secondary Navbar items -->
             <div class="hidden md:flex items-center space-x-3 ">
+                @auth
+                @if (Auth::user()->role == 2)
+                <a href="{{ route('admin.dashboard') }}">{{ Auth::user()->name }}</a>
+                @else
+                <a href="{{ route('dashboard') }}">{{ Auth::user()->name }}</a>
+                @endif
+                @else
                 <a href="{{ route('login') }}"
                     class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-blue-500 hover:text-white transition duration-300">Log
                     In</a>
+                @endauth
             </div>
             <!-- Mobile menu button -->
             <div class="md:hidden flex items-center">
@@ -42,12 +50,17 @@
     <div class="hidden mobile-menu">
         <ul class="">
             <li class="active"><a href="{{ route('welcome') }}"
-                    class="block text-sm px-2 py-4 text-white bg-blue-500 font-semibold">Beranda</a></li>
-            <li><a href="{{ route('service') }}"
-                    class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300">Bantuan</a></li>
-            <li><a href="{{ route('about') }}" class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300">Tentang</a>
+                    class="block text-sm px-2 py-4 {{ request()->is('/') ? 'text-white bg-blue-500 font-semibold' : 'hover:bg-blue-500 transition duration-300' }}">Beranda</a>
             </li>
-            <li><a href="{{ route('contact') }}" class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300">Kontak</a></li>
+            <li><a href="{{ route('service') }}"
+                    class="block text-sm px-2 py-4 {{ request()->is('service') ? 'text-white bg-blue-500 font-semibold' : 'hover:bg-blue-500 transition duration-300' }}">Bantuan</a>
+            </li>
+            <li><a href="{{ route('about') }}"
+                    class="block text-sm px-2 py-4 {{ request()->is('about-us') ? 'text-white bg-blue-500 font-semibold' : 'hover:bg-blue-500 transition duration-300' }}">Tentang</a>
+            </li>
+            <li><a href="{{ route('contact') }}"
+                    class="block text-sm px-2 py-4 {{ request()->is('contact-us') ? 'text-white bg-blue-500 font-semibold' : 'hover:bg-blue-500 transition duration-300' }}">Kontak</a>
+            </li>
         </ul>
     </div>
     <script>
