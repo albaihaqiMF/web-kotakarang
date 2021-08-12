@@ -21,7 +21,7 @@
 
 <body>
     <x-guest-nav></x-guest-nav>
-    <main class="font-sans text-gray-900 antialiased p-2">
+    <main class="font-sans text-gray-900 antialiased">
         {{ $slot }}
     </main>
 </body>

@@ -28,10 +28,19 @@
 <body class="font-sans antialiased">
     <div class="flex-col w-full md:flex md:flex-row md:min-h-screen">
         <x-admin-sidebar></x-admin-sidebar>
-        <main class="w-screen">
+        <main class="container w-screen md:ml-64">
             <nav class="p-3 bg-white shadow-md items-start">
-                <x-app-logo></x-app-logo>
+                <x-app-logo label="false"></x-app-logo>
             </nav>
+
+            <!-- Page Heading -->
+            @if ($header)
+            <header class="bg-white shadow mx-3 my-2 rounded-sm">
+                <div class="max-w-7xl mx-auto py-3 px-2 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
+            @endif
             {{ $slot }}
         </main>
     </div>

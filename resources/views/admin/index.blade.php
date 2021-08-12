@@ -1,11 +1,36 @@
 <x-admin-layout title="Dashboard">
+    <x-slot name="header">
+        /Dashboard
+    </x-slot>
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
-                </div>
+        <div class="px-4">
+            <div class="grid md:grid-cols-3 gap-10">
+                <a href="{{ route('admin.data-penduduk') }}">
+                    <div
+                        class="card shadow-lg border-b-8 rounded-sm flex flex-col items-center justify-center transition duration-200 ease-linear transform hover:scale-105 border-blue-500 h-60 p-5">
+                        <h1 class="text-5xl text-blue-500 text-center">
+                            {{ $data['penduduk'] }}</h1>
+                        <h4 class="text-blue-500 text-center">Jumlah Penduduk</h4>
+                    </div>
+                </a>
+                <a href="">
+                    <div
+                        class="card shadow-lg border-b-8 rounded-sm flex flex-col items-center justify-center transition duration-200 ease-linear transform hover:scale-105 border-green-500 h-60 p-5">
+                        <h1 class="text-5xl text-green-500 text-center">
+                            {{ $data['keluarga'] }}</h1>
+                        <h4 class="text-green-500 text-center">Jumlah KK</h4>
+                    </div>
+                </a>
+                <a href="">
+                    <div
+                        class="card shadow-lg border-b-8 rounded-sm flex flex-col items-center justify-center transition duration-200 ease-linear transform hover:scale-105 border-yellow-500 h-60 p-5">
+                        <h1 class="text-5xl text-yellow-500 text-center">
+                            {{ $data['rt'] }}</h1>
+                        <h4 class="text-yellow-500 text-center">Jumlah RT</h4>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
+    <script src="{{ asset('assets/js/transition.js') }}"></script>
 </x-admin-layout>

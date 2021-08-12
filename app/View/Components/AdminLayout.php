@@ -11,7 +11,7 @@ class AdminLayout extends Component
      *
      * @return void
      */
-    public $title;
+    public $title,$header;
     public function __construct($title = null)
     {
         $app_title = "Kelurahan Kota Karang";

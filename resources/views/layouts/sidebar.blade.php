@@ -1,5 +1,5 @@
 <div @click.away="open = false"
-    class="flex flex-col flex-shrink-0 w-full text-gray-700 bg-gray-500 md:w-64 dark-mode:text-gray-200 dark-mode:bg-gray-800 shadow-xl"
+    class="md:fixed md:h-screen flex flex-col w-full md:w-60 text-gray-700 bg-gray-500 md:w-64 dark-mode:text-gray-200 dark-mode:bg-gray-800 shadow-xl"
     x-data="{ open: false }">
     <div class="flex flex-row items-center justify-between flex-shrink-0 px-8 py-4">
         <a href="#"
