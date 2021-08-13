@@ -13,7 +13,7 @@
                         <h4 class="text-blue-500 text-center">Jumlah Penduduk</h4>
                     </div>
                 </a>
-                <a href="">
+                <a href="{{ route('admin.data-keluarga') }}">
                     <div
                         class="card shadow-lg border-b-8 rounded-sm flex flex-col items-center justify-center transition duration-200 ease-linear transform hover:scale-105 border-green-500 h-60 p-5">
                         <h1 class="text-5xl text-green-500 text-center">

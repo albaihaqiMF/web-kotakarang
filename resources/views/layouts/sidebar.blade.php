@@ -17,11 +17,24 @@
             </svg>
         </button>
     </div>
-    <nav :class="{'block': open, 'hidden': !open}" class="flex-grow px-4 pb-4 md:block md:pb-0 md:overflow-y-auto">
+    <nav :class="{'block': open, 'hidden': !open}" x-data={show:false}
+        class="flex-grow px-4 pb-4 md:block md:pb-0 md:overflow-y-auto">
         <a class="block px-4 py-2 mt-2 text-sm font-semibold text-white rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-black dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white focus:text-black hover:bg-black focus:bg-gray-200 focus:outline-none focus:shadow-outline"
             href="{{ route('admin.dashboard') }}">Dashboard</a>
-        <a class="block px-4 py-2 mt-2 text-sm font-semibold text-white bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-black dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white focus:text-black hover:bg-black focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-            href="{{ route('admin.data-penduduk') }}">Data Penduduk</a>
+        <a x-on:click.prevent="show=!show"
+            class="block px-4 py-2 mt-2 text-sm font-semibold text-white bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white hover:bg-black cursor-pointer"><span>Data</span>
+            <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-0': show, '-rotate-90': !show}"
+                class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">
+                <path fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+            </svg></a>
+        <div x-show="show" class="px-4 ">
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold text-white bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white hover:bg-black cursor-pointer"
+                href="{{ route('admin.data-penduduk') }}">Penduduk</a>
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold text-white bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white hover:bg-black cursor-pointer"
+                href="{{ route('admin.data-keluarga') }}">Kartu Keluarga</a>
+        </div>
         <a class="block px-4 py-2 mt-2 text-sm font-semibold text-white bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-black dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white focus:text-black hover:bg-black focus:bg-gray-200 focus:outline-none focus:shadow-outline"
             href="{{ route('admin.map') }}">Map</a>
         <a class="block px-4 py-2 mt-2 text-sm font-semibold text-white bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-black dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white focus:text-black hover:bg-black focus:bg-gray-200 focus:outline-none focus:shadow-outline"

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\RouteAdminController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Guest\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,8 @@ Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
 Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'role:2']], function () {
     Route::get('/', [RouteAdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/data-penduduk', [RouteAdminController::class, 'dataPenduduk'])->name('admin.data-penduduk');
+    Route::get('/data-keluarga', [RouteAdminController::class, 'dataKeluarga'])->name('admin.data-keluarga');
+    Route::get('/data-keluarga/masukkan-data-baru',[AdminController::class, 'createKeluarga'])->name('admin.keluarga.create');
     Route::get('/map', [RouteAdminController::class, 'map'])->name('admin.map');
 });
 
