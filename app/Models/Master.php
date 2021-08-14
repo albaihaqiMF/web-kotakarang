@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Master extends Model
 {
     use HasFactory;
+
+    public function keluarga()
+    {
+         return $this->hasMany(Keluarga::class);
+    }
 }

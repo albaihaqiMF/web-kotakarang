@@ -15,18 +15,18 @@ class CreateKeluargasTable extends Migration
     {
         Schema::create('keluargas', function (Blueprint $table) {
             $table->id();
-            $table->string('no_kk',16)->unique();
-            $table->string('no_surat')->unique();
+            $table->integer('no_kk')->unique();
+            $table->string('no_surat')->nullable();
             $table->string('kepala_keluarga')->nullable();
             $table->longText('alamat')->nullable();
-            $table->string('rt')->nullable();
-            $table->string('rw')->nullable();
-            $table->string('kelurahan')->nullable();
-            $table->string('kecamatan')->nullable();
-            $table->string('kabupaten')->nullable();
-            $table->string('provinsi')->nullable();
+            $table->string('rt', 3)->nullable();
+            $table->string('rw', 3)->nullable();
+            $table->integer('kelurahan')->nullable();
+            $table->integer('kecamatan')->nullable();
+            $table->integer('kabupaten')->nullable();
+            $table->integer('provinsi')->nullable();
             $table->integer('kode_pos')->nullable();
-            $table->date('tanggal_keluar');
+            $table->date('tanggal_keluar')->nullable();
             $table->timestamps();
         });
     }

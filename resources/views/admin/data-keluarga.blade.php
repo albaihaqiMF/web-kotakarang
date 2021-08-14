@@ -6,7 +6,7 @@
         <div class="flex justify-between p-2">
             <a href="{{ route('admin.keluarga.create') }}" class="bg-blue-500 rounded-md p-2 text-white hover:shadow-lg hover:bg-gray-500">Masukkan Data Baru</a>
         </div>
-        <div class="p-2">
+        <div class="p-2 overflow-auto">
             <table class="table-auto rounded-lg w-full border border-collapse">
                 <thead>
                     <tr class="bg-blue-500">
@@ -30,10 +30,10 @@
                         <td class="border-2 p-1">{{ $item->alamat ?? '-' }}</td>
                         <td class="border-2 p-1">{{ $item->rt ?? '-' }}</td>
                         <td class="border-2 p-1">{{ $item->rw ?? '-' }}</td>
-                        <td class="border-2 p-1">{{ $item->kelurahan ?? '-' }}</td>
-                        <td class="border-2 p-1">{{ $item->kecamatan ?? '-' }}</td>
-                        <td class="border-2 p-1">{{ $item->kabupaten ?? '-' }}</td>
-                        <td class="border-2 p-1">{{ $item->provinsi ?? '-' }}</td>
+                        <td class="border-2 p-1">{{ $item->masterKelurahan->title ?? '-' }}</td>
+                        <td class="border-2 p-1">{{ $item->masterKecamatan->title ?? '-' }}</td>
+                        <td class="border-2 p-1">{{ $item->masterKabupaten->title ?? '-' }}</td>
+                        <td class="border-2 p-1">{{ $item->masterProvinsi->title ?? '-' }}</td>
                         <td class="border-2 p-1">{{ $item->kode_pos ?? '-' }}</td>
                     </tr>
                     @endforeach

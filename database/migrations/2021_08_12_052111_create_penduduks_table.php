@@ -16,7 +16,8 @@ class CreatePenduduksTable extends Migration
         Schema::create('penduduks', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('NIK', 16)->unique();
+            $table->integer('nik')->unique();
+            $table->integer('no_kk')->nullable();
             $table->string('jenis_kelamin', 8);
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
@@ -26,20 +27,10 @@ class CreatePenduduksTable extends Migration
             $table->string('status_pernikahan', 8);
             $table->string('hubungan_keluarga');
             $table->string('kewarganegaraan', 8);
-            $table->string('no_paspor')->unique()->nullable();
-            $table->string('no_kitas')->unique()->nullable();
-            $table->string('nama_ayah');
-            $table->string('nama_ibu');
-
-            //---ADDRESS---//
-            $table->longText('alamat')->nullable();
-            $table->string('rt')->nullable();
-            $table->string('rw')->nullable();
-            $table->string('kelurahan')->nullable();
-            $table->string('kecamatan')->nullable();
-            $table->string('kabupaten')->nullable();
-            $table->string('provinsi')->nullable();
-            $table->integer('kode_pos')->nullable();
+            $table->string('no_paspor',63)->unique()->nullable();
+            $table->string('no_kitas',63)->unique()->nullable();
+            $table->string('nama_ayah',63);
+            $table->string('nama_ibu',63);
             $table->timestamps();
         });
     }

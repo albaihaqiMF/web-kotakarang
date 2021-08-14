@@ -1,10 +1,10 @@
 <div @click.away="open = false"
     class="md:fixed md:h-screen flex flex-col w-full text-gray-700 bg-gray-500 md:w-64 dark-mode:text-gray-200 dark-mode:bg-gray-800 shadow-xl"
-    x-data="{ open: false }">
+    x-data="{ open: false, show: false }">
     <div class="flex flex-row items-center justify-between flex-shrink-0 px-8 py-4">
         <a href="#"
             class="text-lg font-semibold tracking-widest text-white uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">
-            <x-app-logo size="60"></x-app-logo>
+            <x-app-logo size="30"></x-app-logo>
         </a>
         <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
             <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
@@ -17,28 +17,48 @@
             </svg>
         </button>
     </div>
-    <nav :class="{'block': open, 'hidden': !open}" x-data={show:false}
-        class="flex-grow px-4 pb-4 md:block md:pb-0 md:overflow-y-auto">
+    <nav :class="{'block': open, 'hidden': !open}" class="flex-grow px-4 pb-4 md:block md:pb-0 md:overflow-y-auto">
         <a class="block px-4 py-2 mt-2 text-sm font-semibold text-white rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-black dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white focus:text-black hover:bg-black focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-            href="{{ route('admin.dashboard') }}">Dashboard</a>
+            href="{{ route('admin.dashboard') }}">
+            <i class="far fa-chart-bar mx-1"></i>
+            <span>Dashboard</span>
+        </a>
         <a x-on:click.prevent="show=!show"
-            class="block px-4 py-2 mt-2 text-sm font-semibold text-white bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white hover:bg-black cursor-pointer"><span>Data</span>
+            class="block px-4 py-2 mt-2 text-sm font-semibold text-white bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white hover:bg-black cursor-pointer"><i
+                class="fas fa-chart-pie mx-1"></i>
+            <span>Data</span>
             <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-0': show, '-rotate-90': !show}"
                 class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">
                 <path fill-rule="evenodd"
                     d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                     clip-rule="evenodd"></path>
             </svg></a>
-        <div x-show="show" class="px-4 ">
+        <div x-show="show" x-transition:enter="transition ease-out duration-100"
+            x-transition:enter-start="transform opacity-0 scale-95"
+            x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75"
+            x-transition:leave-start="transform opacity-100 scale-100"
+            x-transition:leave-end="transform opacity-0 scale-95" class="px-2">
             <a class="block px-4 py-2 mt-2 text-sm font-semibold text-white bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white hover:bg-black cursor-pointer"
-                href="{{ route('admin.data-penduduk') }}">Penduduk</a>
+                href="{{ route('admin.data-penduduk') }}"><i class="fas fa-user mx-1"></i>
+                <span>Penduduk</span>
+            </a>
             <a class="block px-4 py-2 mt-2 text-sm font-semibold text-white bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white hover:bg-black cursor-pointer"
-                href="{{ route('admin.data-keluarga') }}">Kartu Keluarga</a>
+                href="{{ route('admin.data-keluarga') }}"><i class="fas fa-users mx-1"></i>
+                <span>Kartu Keluarga</span>
+            </a>
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold text-white bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white hover:bg-black cursor-pointer"
+                href="{{ route('admin.data-keluarga') }}"><i class="fas fa-user-tie mx-1"></i>
+                <span>RT</span>
+            </a>
         </div>
         <a class="block px-4 py-2 mt-2 text-sm font-semibold text-white bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-black dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white focus:text-black hover:bg-black focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-            href="{{ route('admin.map') }}">Map</a>
+            href="{{ route('admin.map') }}"><i class="fas fa-map-marked-alt mx-1"></i>
+            <span>Map</span>
+        </a>
         <a class="block px-4 py-2 mt-2 text-sm font-semibold text-white bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-black dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-white focus:text-black hover:bg-black focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-            href="#">Contact</a>
+            href="#">
+            <span>Kontak</span>
+        </a>
         <div @click.away="open = false" class="relative" x-data="{ open: false }">
             <button @click="open = !open"
                 class="flex flex-row items-center w-full px-4 text-white py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-black dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:block hover:text-white focus:text-black hover:bg-black focus:bg-gray-200 focus:outline-none focus:shadow-outline">

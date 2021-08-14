@@ -33,8 +33,8 @@
 <body class="font-sans antialiased">
     <div class="flex-col w-full md:flex md:flex-row md:min-h-screen">
         <x-admin-sidebar></x-admin-sidebar>
-        <main class="container w-screen md:ml-64">
-            <nav class="p-3 bg-white shadow-md items-start">
+        <main class="container w-full md:ml-64">
+            <nav class="hidden md:block p-3 bg-white shadow-md items-start">
                 <x-app-logo label="false"></x-app-logo>
             </nav>
 

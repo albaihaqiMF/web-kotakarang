@@ -15,9 +15,11 @@ class CreateMastersTable extends Migration
     {
         Schema::create('masters', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->unique();
-            $table->string('type')->unique();
+            $table->integer('type');
+            $table->string('description');
+            $table->integer('code')->unique();
             $table->string('title');
+            // $table->timestamps();
         });
     }
 
