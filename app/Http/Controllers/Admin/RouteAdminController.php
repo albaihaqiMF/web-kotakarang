@@ -20,7 +20,8 @@ class RouteAdminController extends Controller
     }
     public function dataPenduduk()
     {
-        return view('admin.data-penduduk');
+        $data = Penduduk::get();
+        return view('admin.data-penduduk',compact('data'));
     }
     public function dataKeluarga()
     {

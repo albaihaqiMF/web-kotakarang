@@ -15,7 +15,7 @@ class CreateKeluargasTable extends Migration
     {
         Schema::create('keluargas', function (Blueprint $table) {
             $table->id();
-            $table->integer('no_kk')->unique();
+            $table->bigInteger('no_kk')->unique();
             $table->string('no_surat')->nullable();
             $table->string('kepala_keluarga')->nullable();
             $table->longText('alamat')->nullable();

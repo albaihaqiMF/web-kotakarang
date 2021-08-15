@@ -11,23 +11,12 @@ class Penduduk extends Model
 
     protected $guarded = [];
 
-    public function masterKelurahan()
+    public function gender()
     {
-        return $this->belongsTo(Master::class, 'kelurahan', 'code');
+         return $this->hasOne(Master::class, 'code', 'jenis_kelamin');
     }
-
-    public function masterKecamatan()
+    public function pekerjaan()
     {
-        return $this->hasOne(Master::class, 'code', 'kecamatan');
-    }
-
-    public function masterKabupaten()
-    {
-        return $this->hasOne(Master::class, 'code', 'kabupaten');
-    }
-
-    public function masterProvinsi()
-    {
-        return $this->hasOne(Master::class, 'code', 'provinsi');
+         return $this->hasOne(Master::class, 'code', 'jenis_pekerjaan');
     }
 }

@@ -12,6 +12,8 @@ class AdminController extends Controller
     {
         $this->middleware('role:2');
     }
+
+    //Data Keluarga (KK)
     public function createKeluarga()
     {
         return view('admin.create-keluarga');
@@ -35,5 +37,12 @@ class AdminController extends Controller
         ]);
 
         return redirect(route('admin.keluarga.create'));
+    }
+
+
+    //Data Penduduk (Warga)
+    public function createPenduduk()
+    {
+         return view('admin.create-penduduk');
     }
 }
