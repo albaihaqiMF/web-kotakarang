@@ -256,6 +256,20 @@ class DatabaseSeeder extends Seeder
                 'title'=>'Belum Kawin',
             ],
 
+            //Kewarganegaraan 1705
+            [
+                'type'=>'1705',
+                'description'=>'Kewarganegaraan',
+                'code'=>'1705001',
+                'title'=>'WNI',
+            ],
+            [
+                'type'=>'1705',
+                'description'=>'Kewarganegaraan',
+                'code'=>'1705002',
+                'title'=>'WNA',
+            ],
+
 
         ];
         foreach ($master as $data) {

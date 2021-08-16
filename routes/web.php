@@ -32,9 +32,10 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth']], function () {
     Route::get('/', [RouteAdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/data-penduduk', [RouteAdminController::class, 'dataPenduduk'])->name('admin.data-penduduk');
     Route::get('/data-penduduk/create', [AdminController::class, 'createPenduduk'])->name('admin.penduduk.create');
+    Route::post('/data-penduduk/store', [AdminController::class, 'storePenduduk'])->name('admin.penduduk.store');
     Route::get('/data-keluarga', [RouteAdminController::class, 'dataKeluarga'])->name('admin.data-keluarga');
-    Route::get('/data-keluarga/create',[AdminController::class, 'createKeluarga'])->name('admin.keluarga.create');
-    Route::post('/data-keluarga/create',[AdminController::class, 'storeKeluarga'])->name('admin.keluarga.store');
+    Route::get('/data-keluarga/create', [AdminController::class, 'createKeluarga'])->name('admin.keluarga.create');
+    Route::post('/data-keluarga/store', [AdminController::class, 'storeKeluarga'])->name('admin.keluarga.store');
     Route::get('/map', [RouteAdminController::class, 'map'])->name('admin.map');
 });
 

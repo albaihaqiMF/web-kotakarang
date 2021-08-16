@@ -17,7 +17,7 @@ class CreatePenduduksTable extends Migration
             $table->id();
             $table->string('nama');
             $table->bigInteger('nik')->unique();
-            $table->string('no_kk')->nullable();
+            $table->bigInteger('no_kk')->nullable();
             $table->string('jenis_kelamin', 8);
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
