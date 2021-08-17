@@ -5,9 +5,14 @@
     <div class="container p-2 flex justify-between">
         <a class="bg-blue-500 rounded-md p-2" href="{{ route('admin.penduduk.create') }}">Masukkan Data Penduduk</a>
     </div>
+    @isset($error)
+    <div class="container p-2 text-center">
+        <h1>{{ $error }}</h1>
+    </div>
+    @endisset
     <div class="container">
         <div class="p-2 overflow-auto">
-            <table class="table-auto rounded-sm w-full border-collapse">
+            <table class="table-auto rounded-sm w-full border-collapse" id="table">
                 <thead>
                     <tr class="bg-blue-500">
                         <th class="border-2 p-1">Nama</th>
@@ -26,7 +31,7 @@
                         <td class="border-2 p-1">{{ $item->nik ?? '-' }}</td>
                         <td class="border-2 p-1">{{ $item->no_kk ?? '-' }}</td>
                         <td class="border-2 p-1">{{ $item->gender->title ?? '-' }}</td>
-                        <td class="border-2 p-1">{{ $item->tempat_lahir ?? '-' }}</td>
+                        <td class="border-2 p-1">{{ ucwords($item->tempat_lahir) ?? '-' }}</td>
                         <td class="border-2 p-1">{{ $item->tanggal_lahir ?? '-' }}</td>
                         <td class="border-2 p-1">{{ $item->pekerjaan->title ?? '-' }}</td>
                     </tr>
@@ -35,4 +40,5 @@
             </table>
         </div>
     </div>
+    <script src="{{ asset('assets/js/table.js') }}"></script>
 </x-admin-layout>

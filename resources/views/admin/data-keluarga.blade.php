@@ -7,7 +7,7 @@
             <a href="{{ route('admin.keluarga.create') }}" class="bg-blue-500 rounded-md p-2 text-white hover:shadow-lg hover:bg-gray-500">Masukkan Data Baru</a>
         </div>
         <div class="p-2 overflow-auto">
-            <table class="table-auto rounded-lg w-full border border-collapse">
+            <table class="table-auto rounded-lg w-full border border-collapse my-1" id="table">
                 <thead>
                     <tr class="bg-blue-500">
                         <th class="border-2 p-1">No. KK</th>
@@ -41,4 +41,5 @@
             </table>
         </div>
     </div>
+    <script src="{{ asset('assets/js/table.js') }}"></script>
 </x-admin-layout>

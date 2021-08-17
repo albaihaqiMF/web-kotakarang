@@ -65,12 +65,10 @@ class AdminController extends Controller
 
     public function storePenduduk(Request $request)
     {
-        // $request->validate([
-        //     'nik'=>['numeric'],
-        //     'no_kk'=>['numeric'],
-        //     'no_paspor'=>['numeric'],
-        //     'no_kitas'=>['numeric'],
-        // ]);
+        $request->validate([
+            'nik'=>'unique:penduduks|numeric',
+
+        ]);
         Penduduk::create([
             'nama' =>  $request['nama'],
             'nik' =>  $request['nik'],

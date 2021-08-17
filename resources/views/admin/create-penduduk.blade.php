@@ -20,6 +20,11 @@
                         </label>
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                             name="nik" id="nik" type="text" placeholder="NIK" value="{{ old('nik') }}" required>
+                        @error('nik')
+                        <x-alert-validate>
+                            {{ Str::upper($message) }}
+                        </x-alert-validate>
+                        @enderror
                     </div>
                     <div class="mb-4">
                         <label class="block text-grey-darker text-sm font-bold mb-2" for="no_kk">
@@ -28,6 +33,11 @@
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                             name="no_kk" id="no_kk" type="text" placeholder="No. KK (Boleh Kosong)"
                             value="{{ old('no_kk') }}">
+                        @error('no_kk')
+                        <x-alert-validate>
+                            {{ Str::upper($message) }}
+                        </x-alert-validate>
+                        @enderror
                     </div>
 
                     <div class="mb-4">
@@ -118,8 +128,8 @@
                         Pekerjaan
                     </label>
                     <select class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-                        name="jenis_pekerjaan" id="jenis_pekerjaan" placeholder="Pekerjaan" value="{{ old('jenis_pekerjaan') }}"
-                        required>
+                        name="jenis_pekerjaan" id="jenis_pekerjaan" placeholder="Pekerjaan"
+                        value="{{ old('jenis_pekerjaan') }}" required>
                         @foreach ($pekerjaan as $item)
                         <option value="{{ $item->code }}">{{ $item->title }}</option>
                         @endforeach
@@ -135,6 +145,11 @@
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                         name="no_paspor" id="no_paspor" type="text" placeholder="Nomor Paspor"
                         value="{{ old('no_paspor') }}">
+                    @error('no_paspor')
+                    <x-alert-validate>
+                        {{ Str::upper($message) }}
+                    </x-alert-validate>
+                    @enderror
                 </div>
                 <div class="mb-4">
                     <label class="block text-grey-darker text-sm font-bold mb-2" for="no_kitas">
@@ -143,6 +158,11 @@
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                         name="no_kitas" id="no_kitas" type="text" placeholder="Nomor Kitas/Kitap"
                         value="{{ old('no_kitas') }}">
+                    @error('no_kitas')
+                    <x-alert-validate>
+                        {{ Str::upper($message) }}
+                    </x-alert-validate>
+                    @enderror
                 </div>
             </div>
             <div class="grid md:grid-cols-2 gap-4">
