@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\RouteAdminController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Guest\HomeController;
 use App\Http\Controllers\JSON\ApiController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,17 +47,20 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth']], function () {
 // --------------------------------------------------------------------------- //
 Route::middleware(['auth'])->group(function () {
     Route::view('/dashboard', 'dashboard')->name('dashboard');
+
+
+
+    // --------------------------------------------------------------------------- //
+    // ---------------------------------API ROUTE--------------------------------- //
+    // --------------------------------------------------------------------------- //
+    Route::prefix('v1/api')->group(function () {
+        Route::get('/', [ApiController::class, 'index']);
+        Route::get('gender', [ApiController::class, 'gender']);
+        Route::get('penduduk', [ApiController::class, 'penduduk']);
+        Route::get('keluarga', [ApiController::class, 'keluarga']);
+    });
 });
 
-// --------------------------------------------------------------------------- //
-// ---------------------------------API ROUTE--------------------------------- //
-// --------------------------------------------------------------------------- //
-Route::prefix('v1/api')->group(function () {
-    Route::get('/', function () {
-        return "a";
-    });
-    Route::get('gender',[ApiController::class,'gender']);
-});
 
 
 require __DIR__ . '/auth.php';

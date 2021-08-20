@@ -30,17 +30,16 @@
                     </div>
                 </a>
                 <div class="hidden md:flex container">
-                    <canvas id="myChart" height="200"></canvas>
+                    <canvas id="gender" height="auto"></canvas>
+                </div>
+                <div class="hidden md:flex container">
+                    <canvas id="penduduk" height="auto"></canvas>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        var ctx = document.getElementById("myChart");
-        var labels=["Perempuan", "Laki-laki"]
-        var title = "Jumlah Penduduk"
-    </script>
     <script src="{{ asset('assets/js/transition.js') }}"></script>
     <script src="{{ asset('assets/js/chart/gender.js') }}"></script>
+    <script src="{{ asset('assets/js/chart/population.js') }}"></script>
 
 </x-admin-layout>

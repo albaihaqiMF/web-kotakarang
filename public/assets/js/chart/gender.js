@@ -1,11 +1,14 @@
+var genderCtx = document.getElementById("gender");
+var gLabels = ["Perempuan", "Laki-laki"];
+var title = "Jumlah Penduduk";
 var myChart;
 
 $(function () {
     $.getJSON("v1/api/gender", function (result) {
-        myChart = new Chart(ctx, {
+        myChart = new Chart(genderCtx, {
             type: "bar",
             data: {
-                labels: labels,
+                labels: gLabels,
                 datasets: [
                     {
                         label: title,
