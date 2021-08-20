@@ -23,6 +23,9 @@ class AdminController extends Controller
 
     public function storeKeluarga(Request $request)
     {
+        $request->validate([
+            'no_kk' => 'unique:penduduks|numeric',
+        ]);
         $data = $request->all();
 
         Keluarga::create([
@@ -66,8 +69,7 @@ class AdminController extends Controller
     public function storePenduduk(Request $request)
     {
         $request->validate([
-            'nik'=>'unique:penduduks|numeric',
-
+            'nik' => 'unique:penduduks|numeric',
         ]);
         Penduduk::create([
             'nama' =>  $request['nama'],

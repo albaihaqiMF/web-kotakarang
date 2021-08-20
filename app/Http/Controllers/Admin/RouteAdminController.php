@@ -11,11 +11,11 @@ class RouteAdminController extends Controller
 {
     public function dashboard()
     {
-        $data = ([
+        $data = [
             'keluarga' => Keluarga::count(),
             'rt' => 11,
             'penduduk' => Penduduk::count(),
-        ]);
+        ];
         return view('admin.index', compact('data'));
     }
     public function dataPenduduk()

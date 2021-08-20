@@ -29,8 +29,18 @@
                         <h4 class="text-yellow-500 text-center">Jumlah RT</h4>
                     </div>
                 </a>
+                <div class="hidden md:flex container">
+                    <canvas id="myChart" height="200"></canvas>
+                </div>
             </div>
         </div>
     </div>
+    <script>
+        var ctx = document.getElementById("myChart");
+        var labels=["Perempuan", "Laki-laki"]
+        var title = "Jumlah Penduduk"
+    </script>
     <script src="{{ asset('assets/js/transition.js') }}"></script>
+    <script src="{{ asset('assets/js/chart/gender.js') }}"></script>
+
 </x-admin-layout>

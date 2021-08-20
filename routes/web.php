@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\RouteAdminController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Guest\HomeController;
+use App\Http\Controllers\JSON\ApiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,6 +55,7 @@ Route::prefix('v1/api')->group(function () {
     Route::get('/', function () {
         return "a";
     });
+    Route::get('gender',[ApiController::class,'gender']);
 });
 
 

@@ -126,13 +126,13 @@ class DatabaseSeeder extends Seeder
                 'type'=>'1111',
                 'description'=>'agama',
                 'code'=>'1111002',
-                'title'=>'Kristen',
+                'title'=>'Kristen Protestan',
             ],
             [
                 'type'=>'1111',
                 'description'=>'agama',
                 'code'=>'1111003',
-                'title'=>'Katolik',
+                'title'=>'Kristen Katholik',
             ],
             [
                 'type'=>'1111',
@@ -145,6 +145,12 @@ class DatabaseSeeder extends Seeder
                 'description'=>'agama',
                 'code'=>'1111005',
                 'title'=>'Hindu',
+            ],
+            [
+                'type'=>'1111',
+                'description'=>'agama',
+                'code'=>'1111006',
+                'title'=>'Kong Hu Chu',
             ],
             [
                 'type'=>'1111',
@@ -165,13 +171,13 @@ class DatabaseSeeder extends Seeder
                 'type'=>'1288',
                 'description'=>'pendidikan',
                 'code'=>'1288002',
-                'title'=>'SMP/MTs sederajat',
+                'title'=>'SLTP',
             ],
             [
                 'type'=>'1288',
                 'description'=>'pendidikan',
                 'code'=>'1288003',
-                'title'=>'SMA/MA sederajat',
+                'title'=>'SLTA',
             ],
             [
                 'type'=>'1288',
@@ -200,6 +206,12 @@ class DatabaseSeeder extends Seeder
             [
                 'type'=>'1288',
                 'description'=>'pendidikan',
+                'code'=>'1288008',
+                'title'=>'Belum Sekolah',
+            ],
+            [
+                'type'=>'1288',
+                'description'=>'pendidikan',
                 'code'=>'1288999',
                 'title'=>'Lainnya',
             ],
@@ -215,7 +227,7 @@ class DatabaseSeeder extends Seeder
                 'type'=>'8888',
                 'description'=>'pekerjaan',
                 'code'=>'8888002',
-                'title'=>'Swasta/Wirausaha',
+                'title'=>'Swasta / Wirausaha',
             ],
             [
                 'type'=>'8888',
@@ -227,13 +239,55 @@ class DatabaseSeeder extends Seeder
                 'type'=>'8888',
                 'description'=>'pekerjaan',
                 'code'=>'8888004',
-                'title'=>'Pedagang',
+                'title'=>'TNI / POLRI',
             ],
             [
                 'type'=>'8888',
                 'description'=>'pekerjaan',
                 'code'=>'8888005',
-                'title'=>'Siswa/Mahasiswa',
+                'title'=>'Siswa / Mahasiswa',
+            ],
+            [
+                'type'=>'8888',
+                'description'=>'pekerjaan',
+                'code'=>'8888006',
+                'title'=>'Buruh',
+            ],
+            [
+                'type'=>'8888',
+                'description'=>'pekerjaan',
+                'code'=>'8888007',
+                'title'=>'Pensiunan',
+            ],
+            [
+                'type'=>'8888',
+                'description'=>'pekerjaan',
+                'code'=>'8888008',
+                'title'=>'Nelayan',
+            ],
+            [
+                'type'=>'8888',
+                'description'=>'pekerjaan',
+                'code'=>'8888009',
+                'title'=>'Jasa',
+            ],
+            [
+                'type'=>'8888',
+                'description'=>'pekerjaan',
+                'code'=>'8888010',
+                'title'=>'Karyawan',
+            ],
+            [
+                'type'=>'8888',
+                'description'=>'pekerjaan',
+                'code'=>'8888011',
+                'title'=>'Tukang',
+            ],
+            [
+                'type'=>'8888',
+                'description'=>'pekerjaan',
+                'code'=>'8888012',
+                'title'=>'Petani',
             ],
             [
                 'type'=>'8888',
@@ -275,19 +329,19 @@ class DatabaseSeeder extends Seeder
         foreach ($master as $data) {
             Master::insert($data);
         }
-        Penduduk::create([
-            'nama' => 'Muhammad Fahmi Albaihaqi',
-            'nik' => '1871052410990003',
-            'jenis_kelamin' => '2233001',
-            'tempat_lahir' => 'Gresik',
-            'tanggal_lahir' => '24/10/1999',
-            'agama' => '1111001',
-            'pendidikan' => '1288003',
-            'jenis_pekerjaan' => '8888005',
-            'status_pernikahan' => '5252002',
-            'kewarganegaraan' => 'WNI',
-            'nama_ayah'=>'Athorid',
-            'nama_ibu'=>'Zahrotul Ummah'
-        ]);
+        // Penduduk::create([
+        //     'nama' => 'Muhammad Fahmi Albaihaqi',
+        //     'nik' => '1871052410990003',
+        //     'jenis_kelamin' => '2233001',
+        //     'tempat_lahir' => 'Gresik',
+        //     'tanggal_lahir' => '24/10/1999',
+        //     'agama' => '1111001',
+        //     'pendidikan' => '1288003',
+        //     'jenis_pekerjaan' => '8888005',
+        //     'status_pernikahan' => '5252002',
+        //     'kewarganegaraan' => 'WNI',
+        //     'nama_ayah'=>'Athorid',
+        //     'nama_ibu'=>'Zahrotul Ummah'
+        // ]);
     }
 }

@@ -5,19 +5,18 @@
             <div class="text-lg w-full text-center py-2">
                 Memasukkan Data KK
             </div>
-
-            {{-- @error('no_kk')
-            <div class="text-lg w-full text-center py-2">
-                {{ $message }}
-            </div>
-            @endif --}}
             <div class="">
                 <div class="mb-4">
                     <label class="block text-grey-darker text-sm font-bold mb-2" for="No KK">
                         No KK
                     </label>
-                    <input required class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="no_kk"
-                        name="no_kk" type="text" placeholder="No KK" value="{{ old('no_kk') }}">
+                    <input required class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                        id="no_kk" name="no_kk" type="text" placeholder="No KK" value="{{ old('no_kk') }}">
+                    @error('no_kk')
+                    <x-alert-validate>
+                        {{ Str::upper($message) }}
+                    </x-alert-validate>
+                    @enderror
                 </div>
                 <div class="mb-4">
                     <label class="block text-grey-darker text-sm font-bold mb-2" for="Kepala Keluarga">
@@ -31,16 +30,16 @@
                     <label class="block text-grey-darker text-sm font-bold mb-2" for="alamat">
                         Alamat
                     </label>
-                    <input required class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" name="alamat"
-                        id="alamat" type="text" placeholder="Alamat" value="{{ old('alamat') }}">
+                    <input required class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                        name="alamat" id="alamat" type="text" placeholder="Alamat" value="{{ old('alamat') }}">
                 </div>
                 <div class="grid md:grid-cols-3 gap-3">
                     <div class="mb-4">
                         <label class="block text-grey-darker text-sm font-bold mb-2" for="rt">
                             RT
                         </label>
-                        <input required class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" name="rt"
-                            id="rt" type="text" placeholder="RT" value="{{ old('rt') }}">
+                        <input required class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                            name="rt" id="rt" type="text" placeholder="RT" value="{{ old('rt') }}">
                     </div>
                     <div class="mb-4">
                         <label class="block text-grey-darker text-sm font-bold mb-2" for="rw">
