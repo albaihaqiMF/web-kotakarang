@@ -1,5 +1,5 @@
 <div @click.away="open = false"
-    class="md:fixed md:h-screen flex flex-col w-full text-gray-700 bg-gray-500 md:w-64 dark-mode:text-gray-200 dark-mode:bg-gray-800 shadow-xl"
+    class="md:fixed md:h-screen flex flex-col w-full text-gray-700 bg-gray-500 md:w-64 dark-mode:text-gray-200 dark-mode:bg-gray-800 shadow-xl relative z-50"
     x-data="{ open: false, show: false }">
     <div class="flex flex-row items-center justify-between flex-shrink-0 px-8 py-4">
         <a href="#"
@@ -62,7 +62,7 @@
         <div @click.away="open = false" class="relative" x-data="{ open: false }">
             <button @click="open = !open"
                 class="flex flex-row items-center w-full px-4 text-white py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-black dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:block hover:text-white focus:text-black hover:bg-black focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                <span>Options</span>
+                <span>Layanan</span>
                 <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}"
                     class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">
                     <path fill-rule="evenodd"
@@ -78,10 +78,15 @@
                 x-transition:leave-end="transform opacity-0 scale-95"
                 class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg">
                 <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-700">
+
                     <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-black dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-white focus:text-black hover:bg-black focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                        href="#">Link #1</a>
+                        href="#">KTP</a>
                     <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-black dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-white focus:text-black hover:bg-black focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                        href="#">Link #2</a>
+                        href="#">Kartu Keluarga</a>
+                    <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-black dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-white focus:text-black hover:bg-black focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                        href="#">SK Kelahiran</a>
+                    <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-black dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-white focus:text-black hover:bg-black focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                        href="#">SK Kematian</a>
 
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf

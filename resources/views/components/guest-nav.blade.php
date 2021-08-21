@@ -13,7 +13,9 @@
                     <a href="{{ route('welcome') }}"
                         class="py-4 px-2  font-semibold {{ request()->is('/') ? 'text-gray-500 border-b-4 border-blue-500' : 'hover:text-blue-500 transition duration-300' }}">Beranda</a>
                     <a href="{{ route('service') }}"
-                        class="py-4 px-2  font-semibold {{ request()->is('service') ? 'text-gray-500 border-b-4 border-blue-500' : 'hover:text-blue-500 transition duration-300' }}">Bantuan</a>
+                        class="py-4 px-2  font-semibold {{ request()->is('service') ? 'text-gray-500 border-b-4 border-blue-500' : 'hover:text-blue-500 transition duration-300' }}">Layanan</a>
+                    <a href="{{ route('map') }}"
+                        class="py-4 px-2  font-semibold {{ request()->is('map') ? 'text-gray-500 border-b-4 border-blue-500' : 'hover:text-blue-500 transition duration-300' }}">Map</a>
                     <a href="{{ route('about') }}"
                         class="py-4 px-2  font-semibold {{ request()->is('about-us') ? 'text-gray-500 border-b-4 border-blue-500' : 'hover:text-blue-500 transition duration-300' }}">Tentang</a>
                     <a href="{{ route('contact') }}"
@@ -53,7 +55,10 @@
                     class="block text-sm px-2 py-4 {{ request()->is('/') ? 'text-white bg-blue-500 font-semibold' : 'hover:bg-blue-500 transition duration-300' }}">Beranda</a>
             </li>
             <li><a href="{{ route('service') }}"
-                    class="block text-sm px-2 py-4 {{ request()->is('service') ? 'text-white bg-blue-500 font-semibold' : 'hover:bg-blue-500 transition duration-300' }}">Bantuan</a>
+                    class="block text-sm px-2 py-4 {{ request()->is('service') ? 'text-white bg-blue-500 font-semibold' : 'hover:bg-blue-500 transition duration-300' }}">Layanan</a>
+            </li>
+            <li><a href="{{ route('map') }}"
+                    class="block text-sm px-2 py-4 {{ request()->is('map') ? 'text-white bg-blue-500 font-semibold' : 'hover:bg-blue-500 transition duration-300' }}">Map</a>
             </li>
             <li><a href="{{ route('about') }}"
                     class="block text-sm px-2 py-4 {{ request()->is('about-us') ? 'text-white bg-blue-500 font-semibold' : 'hover:bg-blue-500 transition duration-300' }}">Tentang</a>
@@ -61,6 +66,7 @@
             <li><a href="{{ route('contact') }}"
                     class="block text-sm px-2 py-4 {{ request()->is('contact-us') ? 'text-white bg-blue-500 font-semibold' : 'hover:bg-blue-500 transition duration-300' }}">Kontak</a>
             </li>
+
         </ul>
     </div>
     <script>

@@ -2,7 +2,7 @@ var ctx = document.getElementById("penduduk");
 var labels = ["Belum Terdaftar", "Terdaftar"];
 var title = "Jumlah Penduduk";
 
-var pendudukChart
+var pendudukChart;
 
 $(function () {
     $.getJSON("v1/api/keluarga", function (result) {
@@ -13,12 +13,11 @@ $(function () {
                 datasets: [
                     {
                         label: title,
-                        data: [500-result.count, result.count],
-                        backgroundColor: [
-                            "rgb(255,197,63)",
-                            "#23CF51",
-                        ],
-                        borderWidth: 1,
+                        data: [5 - result.count, result.count],
+                        backgroundColor: ["rgb(255,197,63)", "#23CF51"],
+                        borderWidth: 0,
+                        weight:.1,
+                        hoverOffset:8,
                     },
                 ],
             },

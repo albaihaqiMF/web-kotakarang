@@ -30,10 +30,10 @@
                     </div>
                 </a>
                 <div class="hidden md:flex container">
-                    <canvas id="gender" height="auto"></canvas>
+                    <canvas id="gender" height="300"></canvas>
                 </div>
                 <div class="hidden md:flex container">
-                    <canvas id="penduduk" height="auto"></canvas>
+                    <canvas id="penduduk" height="100"></canvas>
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\RouteAdminController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Guest\HomeController;
 use App\Http\Controllers\JSON\ApiController;
+use App\Http\Controllers\ServiceController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
@@ -21,9 +22,24 @@ use Illuminate\Support\Facades\Route;
 // --------------------------------GUEST ROUTE-------------------------------- //
 // --------------------------------------------------------------------------- //
 Route::get('/', [HomeController::class, 'beranda'])->name('welcome');
-Route::get('/service', [HomeController::class, 'service'])->name('service');
+Route::prefix('service')->group(function () {
+    Route::get('/', [HomeController::class, 'service'])->name('service');
+
+    // --- KTP ---//
+    Route::get('/ktp', [ServiceController::class, 'create_ktp'])->name('ktp');
+    Route::post('/ktp', [ServiceController::class, 'store_ktp'])->name('store.ktp');
+
+    // --- KK ---//
+    Route::get('/kk', [ServiceController::class, 'create_kk'])->name('kk');
+    Route::post('/kk', [ServiceController::class, 'store_kk'])->name('store.kk');
+    Route::get('/sk-kematian', [ServiceController::class, 'create_skKematian'])->name('sk-kematian');
+    Route::get('/sk-kelahiran', [ServiceController::class, 'create_skKelahiran'])->name('sk-kelahiran');
+
+    Route::post('search',[ServiceController::class, 'search'])->name('service.search');
+});
 Route::get('/about-us', [HomeController::class, 'about'])->name('about');
 Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
+Route::get('/map', [HomeController::class, 'map'])->name('map');
 
 
 

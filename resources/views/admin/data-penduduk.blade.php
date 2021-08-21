@@ -5,14 +5,16 @@
     <div class="container p-2 flex justify-between">
         <a class="bg-blue-500 rounded-md p-2" href="{{ route('admin.penduduk.create') }}">Masukkan Data Penduduk</a>
     </div>
-    @isset($error)
-    <div class="container p-2 text-center">
-        <h1>{{ $error }}</h1>
+    @if (session()->has('success'))
+    <div class="w-full p-2">
+        <div class="text-center bg-green-100 border-solid text-green-700 border-green-900 rounded-sm">
+            <h1>{{session()->get('success')}}</h1>
+        </div>
     </div>
-    @endisset
+    @endif
     <div class="container">
         <div class="p-2 overflow-auto">
-            <table class="table-auto rounded-sm w-full border-collapse" id="table">
+            <table class="table-auto rounded-sm w-full border-collapse relative z-0" id="table">
                 <thead>
                     <tr class="bg-blue-500">
                         <th class="border-2 p-1">Nama</th>

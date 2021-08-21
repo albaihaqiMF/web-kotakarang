@@ -62,7 +62,6 @@ class AdminController extends Controller
             'pekerjaan' => $pekerjaan,
             'status' => $status,
             'negara' => $negara,
-
         ]);
     }
 
@@ -72,7 +71,7 @@ class AdminController extends Controller
             'nik' => 'unique:penduduks|numeric',
         ]);
         Penduduk::create([
-            'nama' =>  $request['nama'],
+            'nama' =>  \Str::upper($request['nama']),
             'nik' =>  $request['nik'],
             'no_kk' =>  $request['no_kk'],
             'jenis_kelamin' =>  $request['jenis_kelamin'],
@@ -88,6 +87,8 @@ class AdminController extends Controller
             'nama_ayah' =>  $request['nama_ayah'],
             'nama_ibu' =>  $request['nama_ibu'],
         ]);
+
+        session()->flash('success', 'Data ' . $request['nama'] . ' dengan NIK. ' . $request['nik'] . ' berhasil ditambah');
 
         return redirect(route('admin.data-penduduk'));
     }
