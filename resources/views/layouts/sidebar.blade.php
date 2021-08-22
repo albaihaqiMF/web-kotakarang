@@ -80,13 +80,13 @@
                 <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-700">
 
                     <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-black dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-white focus:text-black hover:bg-black focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                        href="#">KTP</a>
+                        href="{{ route('admin.daftar-ktp') }}">KTP</a>
                     <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-black dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-white focus:text-black hover:bg-black focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                         href="#">Kartu Keluarga</a>
                     <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-black dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-white focus:text-black hover:bg-black focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                        href="#">SK Kelahiran</a>
+                        href="{{ route('admin.sk-kelahiran') }}">SK Kelahiran</a>
                     <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-black dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-white focus:text-black hover:bg-black focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                        href="#">SK Kematian</a>
+                        href="{{ route('admin.sk-kematian') }}">SK Kematian</a>
 
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf

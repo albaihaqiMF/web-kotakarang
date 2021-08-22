@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\RouteAdminController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\AdminServiceController;
 use App\Http\Controllers\Guest\HomeController;
 use App\Http\Controllers\JSON\ApiController;
 use App\Http\Controllers\ServiceController;
@@ -32,10 +33,16 @@ Route::prefix('service')->group(function () {
     // --- KK ---//
     Route::get('/kk', [ServiceController::class, 'create_kk'])->name('kk');
     Route::post('/kk', [ServiceController::class, 'store_kk'])->name('store.kk');
-    Route::get('/sk-kematian', [ServiceController::class, 'create_skKematian'])->name('sk-kematian');
-    Route::get('/sk-kelahiran', [ServiceController::class, 'create_skKelahiran'])->name('sk-kelahiran');
 
-    Route::post('search',[ServiceController::class, 'search'])->name('service.search');
+    // --- SK Kematian ---//
+    Route::get('/sk-kematian', [ServiceController::class, 'create_skKematian'])->name('sk-kematian');
+    Route::post('/sk-kematian', [ServiceController::class, 'store_skKematian'])->name('store.sk-kematian');
+
+    // --- SK Kelahiran ---//
+    Route::get('/sk-kelahiran', [ServiceController::class, 'create_skKelahiran'])->name('sk-kelahiran');
+    Route::post('/sk-kelahiran', [ServiceController::class, 'store_skKelahiran'])->name('store.sk-kelahiran');
+
+    Route::post('search', [ServiceController::class, 'search'])->name('service.search');
 });
 Route::get('/about-us', [HomeController::class, 'about'])->name('about');
 Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
@@ -55,6 +62,12 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth']], function () {
     Route::get('/data-keluarga/create', [AdminController::class, 'createKeluarga'])->name('admin.keluarga.create');
     Route::post('/data-keluarga/store', [AdminController::class, 'storeKeluarga'])->name('admin.keluarga.store');
     Route::get('/map', [RouteAdminController::class, 'map'])->name('admin.map');
+
+    //---SERVICE---//
+    Route::get('/daftar-ktp',[AdminServiceController::class, 'daftar_ktp'])->name('admin.daftar-ktp');
+    Route::get('/sk-kelahiran',[AdminServiceController::class, 'sk_kelahiran'])->name('admin.sk-kelahiran');
+    Route::get('/sk-kelahiran/{kelahiran:id}',[AdminServiceController::class, 'kelahiranShow'])->name('admin.sk-kelahiran.detail');
+    Route::get('/sk-kematian',[AdminServiceController::class, 'sk_kematian'])->name('admin.sk-kematian');
 });
 
 

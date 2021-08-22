@@ -7,7 +7,7 @@
             </x-alert-success>
         @endif
         @if (session()->has('search'))
-        <div class="p-4">
+        <div class="p-4 overflow-auto">
             <table class="table w-full border-collapse">
                 <thead>
                     <tr>

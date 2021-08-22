@@ -1,4 +1,4 @@
-<nav class="bg-white shadow-lg">
+<nav class="bg-white shadow-lg transition duration-200 z-10" id="navbar">
     <div class="max-w-6xl mx-auto px-4">
         <div class="flex justify-between">
             <div class="flex space-x-7">
@@ -76,5 +76,18 @@
         btn.addEventListener("click", () => {
             menu.classList.toggle("hidden");
         });
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', (e) => {
+            if (window.pageYOffset > 0) {
+                navbar.classList.add('fixed')
+                navbar.classList.add('top-0')
+                navbar.classList.add('w-full')
+            } else {
+                navbar.classList.remove('fixed')
+                navbar.classList.remove('top-0')
+                navbar.classList.remove('w-full')
+            }
+        })
     </script>
 </nav>

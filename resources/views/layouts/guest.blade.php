@@ -31,7 +31,7 @@
 
 <body>
     <x-guest-nav></x-guest-nav>
-    <main class="font-sans text-gray-900 antialiased">
+    <main class="font-sans text-gray-900 antialiased w-full">
         {{ $slot }}
     </main>
 </body>
