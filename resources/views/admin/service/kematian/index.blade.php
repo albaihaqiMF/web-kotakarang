@@ -23,8 +23,8 @@
                     <td class="border-2 p-1">{{ $item->created_at ?? '-' }}</td>
                     <td class="border-2 p-1">
                         <div class="grid grid-cols-3 gap-2">
-                            <a href="{{ route('admin.sk-kelahiran.detail', [
-                                'kelahiran' => $item->id
+                            <a href="{{ route('admin.sk-kematian.detail', [
+                                'kematian' => $item->id
                             ]) }}" class="p-1 text-center bg-green-500 rounded-md">Lihat</a>
                             <a href="" class="p-1 text-center bg-red-500 rounded-md">Delete</a>
                         </div>

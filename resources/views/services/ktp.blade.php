@@ -1,10 +1,10 @@
 <x-guest-layout>
     <x-search type="1"></x-search>
-    <div class="w-screen">
+    <div class="w-full">
         @if (session()->has('success'))
-            <x-alert-success>
-                {{ session()->get('success') }}
-            </x-alert-success>
+        <x-alert-success>
+            {{ session()->get('success') }}
+        </x-alert-success>
         @endif
         @if (session()->has('search'))
         <div class="p-4 overflow-auto">
@@ -32,44 +32,44 @@
             </table>
         </div>
         @else
-        <div class="flex justify-center p-4">
-            <h1 class="text-2xl text-center">Mendaftar Pembuatan KTP</h1>
-        </div>
-        <div class="p-4 w-full flex flex-col items-center">
-            <form action="{{ route('store.ktp') }}" method="post" class="md:w-6/12 md:p-4 md:bg-white rounded-lg md:shadow-md">
+        <x-card>
+            <x-slot name="logo">
+                Daftar Pembuatan KTP
+            </x-slot>
+            <form action="{{ route('store.ktp') }}" method="post">
                 @csrf
                 <div class="mb-4">
                     <label class="block text-grey-darker text-sm font-bold mb-2" for="nama">
                         Nama
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" name="nama"
+                    <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-grey-darker" name="nama"
                         id="nama" type="text" placeholder="Nama" value="{{ old('nama') }}" required>
                 </div>
                 <div class="mb-4">
                     <label class="block text-grey-darker text-sm font-bold mb-2" for="alamat">
                         Alamat
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" name="alamat"
+                    <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-grey-darker" name="alamat"
                         id="alamat" type="text" placeholder="Alamat" value="{{ old('alamat') }}" required>
                 </div>
                 <div class="mb-4">
                     <label class="block text-grey-darker text-sm font-bold mb-2" for="no_hp">
                         No. Handphone
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" name="no_hp"
+                    <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-grey-darker" name="no_hp"
                         id="no_hp" type="text" placeholder="No. Handphone" value="{{ old('no_hp') }}" required>
-                        @error('no_hp')
-                            <x-alert-validate>
-                                {{ $message }}
-                            </x-alert-validate>
-                        @enderror
+                    @error('no_hp')
+                    <x-alert-validate>
+                        {{ $message }}
+                    </x-alert-validate>
+                    @enderror
                 </div>
                 <div class="flex justify-center">
                     <button type="submit"
                         class="bg-blue-500 rounded-lg p-2 md:shadow-md text-white text-lg">DAFTAR</button>
                 </div>
             </form>
-        </div>
+        </x-card>
         @endif
     </div>
 </x-guest-layout>

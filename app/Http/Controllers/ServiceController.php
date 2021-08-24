@@ -12,7 +12,7 @@ class ServiceController extends Controller
 {
     public function fileStore($name, $path)
     {
-        $fileName = time() . '-' . $path . '.' . $name->extension();
+        $fileName = time() . \Str::random(4) . $path . '.' . $name->extension();
         $name->storeAs('public', $fileName);
 
         return $fileName;

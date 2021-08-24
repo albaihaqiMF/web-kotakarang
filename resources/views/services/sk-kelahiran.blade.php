@@ -32,69 +32,67 @@
             </table>
         </div>
         @else
-        <div class="container">
-            <div class="flex justify-center p-4">
-                <h1 class="text-2xl text-center">Mendaftar Surat Keterangan Kelahiran</h1>
-            </div>
-            <div class="p-4 flex flex-col items-center">
-                <form action="{{ route('store.sk-kelahiran') }}" method="post"
-                    class="md:w-6/12 md:p-4 md:bg-white rounded-lg md:shadow-md" enctype="multipart/form-data">
-                    @csrf
-                    <div class="mb-4">
-                        <label class="block text-grey-darker text-sm font-bold mb-2" for="nama">
-                            Nama
-                        </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" name="nama"
-                            id="nama" type="text" placeholder="Nama" value="{{ old('nama') }}" required>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-grey-darker text-sm font-bold mb-2" for="alamat">
-                            Alamat
-                        </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" name="alamat"
-                            id="alamat" type="text" placeholder="Alamat" value="{{ old('alamat') }}" required>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-grey-darker text-sm font-bold mb-2" for="no_hp">
-                            No. Handphone
-                        </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" name="no_hp"
-                            id="no_hp" type="text" placeholder="No. Handphone" value="{{ old('no_hp') }}" required>
-                        @error('no_hp')
-                        <x-alert-validate>
-                            {{ $message }}
-                        </x-alert-validate>
-                        @enderror
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-grey-darker text-sm font-bold mb-2" for="sk_rt">
-                            Surat Keterangan dari RT
-                        </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" name="sk_rt"
-                            id="sk_rt" type="file" placeholder="Surat Keterangan dari RT" value="{{ old('sk_rt') }}"
-                            required>
-                    </div>
-                    <div class="mb-4">
-                      <label class="block text-grey-darker text-sm font-bold mb-2" for="foto_kk">
-                           Foto Kartu Keluarga
-                      </label>
-                      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" name="foto_kk" id="foto_kk"
-                           type="file" placeholder="Foto Kartu Keluarga" value="{{ old('foto_kk') }}" required>
-                    </div>
-                    <div class="mb-4">
-                      <label class="block text-grey-darker text-sm font-bold mb-2" for="sk_pbb">
-                           Surat Keterangan PBB
-                      </label>
-                      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" name="sk_pbb" id="sk_pbb"
-                           type="file" placeholder="Surat Keterangan PBB" value="{{ old('sk_pbb') }}" re>
-                    </div>
-                    <div class="flex justify-center">
-                        <button type="submit"
-                            class="bg-blue-500 rounded-lg p-2 md:shadow-md text-white text-lg">DAFTAR</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+        <x-card>
+            <x-slot name="logo">
+                Mendaftar Surat Keterangan Kelahiran
+            </x-slot>
+            <form action="{{ route('store.sk-kelahiran') }}" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="mb-4">
+                    <label class="block text-grey-darker text-sm font-bold mb-2" for="nama">
+                        Nama
+                    </label>
+                    <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-grey-darker" name="nama"
+                        id="nama" type="text" placeholder="Nama" value="{{ old('nama') }}" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-grey-darker text-sm font-bold mb-2" for="alamat">
+                        Alamat
+                    </label>
+                    <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-grey-darker" name="alamat"
+                        id="alamat" type="text" placeholder="Alamat" value="{{ old('alamat') }}" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-grey-darker text-sm font-bold mb-2" for="no_hp">
+                        No. Handphone
+                    </label>
+                    <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-grey-darker" name="no_hp"
+                        id="no_hp" type="text" placeholder="No. Handphone" value="{{ old('no_hp') }}" required>
+                    @error('no_hp')
+                    <x-alert-validate>
+                        {{ $message }}
+                    </x-alert-validate>
+                    @enderror
+                </div>
+                <div class="mb-4">
+                    <label class="block text-grey-darker text-sm font-bold mb-2" for="sk_rt">
+                        Surat Keterangan dari RT
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" name="sk_rt"
+                        id="sk_rt" type="file" placeholder="Surat Keterangan dari RT" value="{{ old('sk_rt') }}"
+                        required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-grey-darker text-sm font-bold mb-2" for="foto_kk">
+                        Foto Kartu Keluarga
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                        name="foto_kk" id="foto_kk" type="file" placeholder="Foto Kartu Keluarga"
+                        value="{{ old('foto_kk') }}" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-grey-darker text-sm font-bold mb-2" for="sk_pbb">
+                        Surat Keterangan PBB
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" name="sk_pbb"
+                        id="sk_pbb" type="file" placeholder="Surat Keterangan PBB" value="{{ old('sk_pbb') }}" re>
+                </div>
+                <div class="flex justify-center">
+                    <button type="submit"
+                        class="bg-blue-500 rounded-lg p-2 md:shadow-md text-white text-lg">DAFTAR</button>
+                </div>
+            </form>
+        </x-card>
         @endif
     </div>
 </x-guest-layout>

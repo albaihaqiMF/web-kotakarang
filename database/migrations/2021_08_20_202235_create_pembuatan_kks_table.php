@@ -19,7 +19,8 @@ class CreatePembuatanKksTable extends Migration
             $table->longText('alamat');
             $table->string('no_hp',16);
             $table->string('path');
-            $table->boolean('status')->default(false);
+            $table->integer('status')->default(0);
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

@@ -63,11 +63,22 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth']], function () {
     Route::post('/data-keluarga/store', [AdminController::class, 'storeKeluarga'])->name('admin.keluarga.store');
     Route::get('/map', [RouteAdminController::class, 'map'])->name('admin.map');
 
-    //---SERVICE---//
-    Route::get('/daftar-ktp',[AdminServiceController::class, 'daftar_ktp'])->name('admin.daftar-ktp');
-    Route::get('/sk-kelahiran',[AdminServiceController::class, 'sk_kelahiran'])->name('admin.sk-kelahiran');
-    Route::get('/sk-kelahiran/{kelahiran:id}',[AdminServiceController::class, 'kelahiranShow'])->name('admin.sk-kelahiran.detail');
-    Route::get('/sk-kematian',[AdminServiceController::class, 'sk_kematian'])->name('admin.sk-kematian');
+    // --------------------------------------------------------------------------- //
+    // ------------------------------ADMIN SERVICES------------------------------- //
+    // --------------------------------------------------------------------------- //
+    Route::get('/daftar-ktp', [AdminServiceController::class, 'daftar_ktp'])->name('admin.daftar-ktp');
+    Route::patch('/verify-ktp/{id}', [AdminServiceController::class, 'verify_ktp'])->name('admin.daftar-ktp.verify');
+    Route::patch('/delete-ktp/{id}', [AdminServiceController::class, 'delete_ktp'])->name('admin.daftar-ktp.delete');
+
+
+    Route::get('/sk-kelahiran', [AdminServiceController::class, 'sk_kelahiran'])->name('admin.sk-kelahiran');
+    Route::get('/sk-kelahiran/{kelahiran:id}', [AdminServiceController::class, 'kelahiranShow'])->name('admin.sk-kelahiran.detail');
+    Route::patch('/sk-kelahiran/verify/{kelahiran:id}', [AdminServiceController::class, 'verify_kelahiran'])->name('admin.sk-kelahiran.detail.verify');
+    Route::patch('/sk-kelahiran/delete/{kelahiran:id}', [AdminServiceController::class, 'delete_kelahiran'])->name('admin.sk-kelahiran.detail.delete');
+
+    // ---
+    Route::get('/sk-kematian', [AdminServiceController::class, 'sk_kematian'])->name('admin.sk-kematian');
+    Route::get('/sk-kematian/{kematian:id}', [AdminServiceController::class, 'kematianShow'])->name('admin.sk-kematian.detail');
 });
 
 

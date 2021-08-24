@@ -21,7 +21,8 @@ class CreateKelahiransTable extends Migration
             $table->string('sk_rt');
             $table->string('foto_kk');
             $table->string('sk_pbb');
-            $table->boolean('status')->default(false);
+            $table->integer('status')->default(0);
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

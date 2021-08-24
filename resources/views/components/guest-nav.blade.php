@@ -13,7 +13,7 @@
                     <a href="{{ route('welcome') }}"
                         class="py-4 px-2  font-semibold {{ request()->is('/') ? 'text-gray-500 border-b-4 border-blue-500' : 'hover:text-blue-500 transition duration-300' }}">Beranda</a>
                     <a href="{{ route('service') }}"
-                        class="py-4 px-2  font-semibold {{ request()->is('service') ? 'text-gray-500 border-b-4 border-blue-500' : 'hover:text-blue-500 transition duration-300' }}">Layanan</a>
+                        class="py-4 px-2  font-semibold {{ request()->is('service/*') || request()->is('service') ? 'text-gray-500 border-b-4 border-blue-500' : 'hover:text-blue-500 transition duration-300' }}">Layanan</a>
                     <a href="{{ route('map') }}"
                         class="py-4 px-2  font-semibold {{ request()->is('map') ? 'text-gray-500 border-b-4 border-blue-500' : 'hover:text-blue-500 transition duration-300' }}">Map</a>
                     <a href="{{ route('about') }}"

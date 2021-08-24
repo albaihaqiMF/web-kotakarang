@@ -18,7 +18,8 @@ class CreatePembuatanKTPSTable extends Migration
             $table->string('nama',63);
             $table->longText('alamat');
             $table->string('no_hp',15);
-            $table->boolean('status')->default(false);
+            $table->integer('status')->default(0);
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }
