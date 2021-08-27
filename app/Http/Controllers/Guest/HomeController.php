@@ -23,4 +23,8 @@ class HomeController extends Controller
     {
          return view('guest.contact');
     }
+    public function map()
+    {
+         return view('guest.map');
+    }
 }
