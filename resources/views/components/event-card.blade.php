@@ -11,7 +11,7 @@
             <div class="flex flex-col">
                 <span class="text-lg hidden md:block">{{ strlen($item->title) > 10 ? substr($item->title,0,10).'...' : $item->title }}</span>
                 <span class="text-lg block md:hidden">{{ $item->title }}</span>
-                <span class="text-blue-500 text-xs">{{ date('D, d M Y',strtotime($item->jadwal)) }}</span>
+                <span class="text-xs {{ $item->jadwal >= now() ? 'text-blue-500' : 'text-red-500' }}">{{ date('D, d M Y',strtotime($item->jadwal)) }}</span>
             </div>
         </div>
     </div>
