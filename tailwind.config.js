@@ -15,7 +15,10 @@ module.exports = {
             red:colors.red,
             green:colors.lime,
             yellow:colors.yellow,
-            gray:colors.blueGray
+            gray:colors.blueGray,
+            cyan:colors.cyan,
+            purple:colors.purple,
+            indigo:colors.indigo,
         },
         extend: {
             fontFamily: {
@@ -26,7 +29,8 @@ module.exports = {
 
     variants: {
         extend: {
-            opacity: ['disabled'],
+            textOpacity: ['active'],
+            opacity: ['active'],
         },
     },
 

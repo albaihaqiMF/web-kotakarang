@@ -6,7 +6,6 @@ use App\Http\Controllers\AdminServiceController;
 use App\Http\Controllers\Guest\HomeController;
 use App\Http\Controllers\JSON\ApiController;
 use App\Http\Controllers\ServiceController;
-use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +22,10 @@ use Illuminate\Support\Facades\Route;
 // --------------------------------GUEST ROUTE-------------------------------- //
 // --------------------------------------------------------------------------- //
 Route::get('/', [HomeController::class, 'beranda'])->name('welcome');
+Route::get('/pengumuman', [HomeController::class, 'pengumuman'])->name('pengumuman');
+Route::get('/pengumuman/{pengumuman:slug}', [HomeController::class, 'pengumumanShow'])->name('pengumuman.show');
+Route::get('/event', [HomeController::class, 'event'])->name('event');
+Route::get('/event/{event:slug}', [HomeController::class, 'eventShow'])->name('event.show');
 Route::prefix('service')->group(function () {
     Route::get('/', [HomeController::class, 'service'])->name('service');
 

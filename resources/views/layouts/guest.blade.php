@@ -9,7 +9,9 @@
     <title>{{ $title }}</title>
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -38,10 +40,11 @@
 </head>
 
 <body>
-    <x-guest-nav></x-guest-nav>
-    <main class="font-sans text-gray-900 antialiased w-full">
+    <x-guest-nav />
+    <main class="text-gray-900 antialiased w-full min-h-screen">
         {{ $slot }}
     </main>
+    <x-footer />
 </body>
 
 </html>

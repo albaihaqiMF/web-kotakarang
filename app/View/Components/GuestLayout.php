@@ -10,7 +10,7 @@ class GuestLayout extends Component
     public function __construct($title = null)
     {
         $app_name = "Kelurahan Kota Karang";
-        $this->title = $title === null ? $app_name : $title . " | " . $app_name;
+        $this->title = $title === null ? $app_name : ucwords(strtolower($title)) . " | " . $app_name;
     }
 
     /**

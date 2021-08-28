@@ -1,6 +1,6 @@
 @foreach ($data as $item)
 
-<a href="" class="hover:shadow-lg transform scale-105 transition-all duration-300">
+<a href="{{ route('pengumuman.show',['pengumuman'=>$item->slug]) }}" class="hover:shadow-lg transform scale-105 transition-all duration-300">
     <div class="shadow overflow-hidden rounded-md w-full h-auto md:h-56 lg:h-44 mb-4">
         <div class="grid md:grid-cols-4 gap-1">
             <div>
@@ -9,11 +9,11 @@
             </div>
             <div class="md:col-span-3 p-3">
                 <div id="header">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between">
                         <h1 class="text-3xl">{{ $item->title }}</h1>
                         <span class="text-blue-500">{{ $item->created_at->format('D, d M Y') }}</span>
                     </div>
-                    <div class="border-solid border-t-2 rounded-md border-gray-500"></div>
+                    <div class="border-solid border-t-2 rounded-md border-blue-100 mt-4"></div>
                 </div>
                 <div id="desc" class="py-4">
                     <span class="hidden md:block">
