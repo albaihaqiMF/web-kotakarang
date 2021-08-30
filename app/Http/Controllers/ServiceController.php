@@ -7,12 +7,14 @@ use App\Models\PembuatanKTP;
 use App\Models\SK\Kelahiran;
 use App\Models\SK\Kematian;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ServiceController extends Controller
 {
     public function fileStore($name, $path)
     {
-        $fileName = time() . \Str::random(4) . $path . '.' . $name->extension();
+        $date = date('Y-m-d_H.i.s', strtotime(now()));
+        $fileName = strtoupper($path) . '-' . $date . '-' . Str::random(4) . '-' . Str::random(4) . '-' . Str::random(3) .  '.' . $name->extension();
         $name->storeAs('public', $fileName);
 
         return $fileName;
@@ -54,8 +56,8 @@ class ServiceController extends Controller
         ]);
 
         $sk_rt = $this->fileStore(request()->file('sk_rt'), 'sk_rt');
-        $foto_kk = $this->fileStore(request()->file('foto_kk'),'foto_kk');
-        $sk_pbb = $this->fileStore(request()->file('sk_pbb'),'sk_pbb');
+        $foto_kk = $this->fileStore(request()->file('foto_kk'), 'foto_kk');
+        $sk_pbb = $this->fileStore(request()->file('sk_pbb'), 'sk_pbb');
 
         Kelahiran::create([
             'nama' => strtoupper(request('nama')),
@@ -66,14 +68,14 @@ class ServiceController extends Controller
             'sk_pbb' => $sk_pbb,
         ]);
 
-        session()->flash('success','Data Berhasil Terdaftarkan');
+        session()->flash('success', 'Data Berhasil Terdaftarkan');
         return back();
     }
 
     // --- SK Kematian --- //
     public function create_skKematian()
     {
-         return view('services.sk-kematian');
+        return view('services.sk-kematian');
     }
 
     public function store_skKematian()
@@ -85,8 +87,8 @@ class ServiceController extends Controller
         ]);
 
         $sk_rt = $this->fileStore(request()->file('sk_rt'), 'sk_rt');
-        $sk_rs = $this->fileStore(request()->file('sk_rs'),'sk_rs');
-        $sk_pbb = $this->fileStore(request()->file('sk_pbb'),'sk_pbb');
+        $sk_rs = $this->fileStore(request()->file('sk_rs'), 'sk_rs');
+        $sk_pbb = $this->fileStore(request()->file('sk_pbb'), 'sk_pbb');
 
         Kematian::create([
             'nama' => strtoupper(request('nama')),
@@ -97,7 +99,7 @@ class ServiceController extends Controller
             'sk_pbb' => $sk_pbb,
         ]);
 
-        session()->flash('success','Data Berhasil Terdaftarkan');
+        session()->flash('success', 'Data Berhasil Terdaftarkan');
         return back();
     }
 
@@ -109,19 +111,19 @@ class ServiceController extends Controller
         $query = $r->q;
         switch ($type) {
             case '1':
-                $data = PembuatanKTP::where('nama', 'like', '%' . strtoupper($query) . '%')
+                $data = PembuatanKTP::where('deleted_at',null)->where('nama', 'like', '%' . strtoupper($query) . '%')
                     ->orWhere('no_hp', $query)->get();
                 break;
             case '2':
-                $data = Kelahiran::where('nama', 'like', '%' . strtoupper($query) . '%')
+                $data = Kelahiran::where('deleted_at',null)->where('nama', 'like', '%' . strtoupper($query) . '%')
                     ->orWhere('no_hp', $query)->get();
                 break;
             case '3':
-                $data = Kematian::where('nama', 'like', '%' . strtoupper($query) . '%')
+                $data = Kematian::where('deleted_at',null)->where('nama', 'like', '%' . strtoupper($query) . '%')
                     ->orWhere('no_hp', $query)->get();
                 break;
             case '4':
-                $data = PembuatanKk::where('nama', 'like', '%' . strtoupper($query) . '%')
+                $data = PembuatanKk::where('deleted_at',null)->where('nama', 'like', '%' . strtoupper($query) . '%')
                     ->orWhere('no_hp', $query)->get();
                 break;
             default:

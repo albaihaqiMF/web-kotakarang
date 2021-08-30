@@ -11,7 +11,7 @@
             ]) }}">
                 <div
                     class="overflow-hidden shadow rounded-md h-auto transform hover:scale-105 transition-all duration-300">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"
+                    <img src="{{ $item->gambar !== null ? asset('storage/'.$item->gambar) : 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png' }}"
                         alt="{{ $item->title }}" class="object-cover h-40 w-full">
                     <div id="content" class="px-2 py-4 grid md:flex justify-between items-center">
                         <div class="text-xl capitalize">
@@ -21,6 +21,9 @@
                 </div>
             </a>
             @endforeach
+        </div>
+        <div class="w-full p-4">
+            {{ $data->links() }}
         </div>
     </div>
 </x-guest-layout>

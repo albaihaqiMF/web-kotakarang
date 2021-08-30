@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Event;
 use App\Models\Keluarga;
 use App\Models\Penduduk;
+use App\Models\Pengumuman;
 use Illuminate\Http\Request;
 
 class RouteAdminController extends Controller
@@ -31,5 +33,17 @@ class RouteAdminController extends Controller
     public function map()
     {
         return view('admin.map');
+    }
+    public function pengumuman()
+    {
+         $data = Pengumuman::orderBy('updated_at','desc')->get();
+
+         return view('admin.pengumuman.index',compact('data'));
+    }
+    public function event()
+    {
+         $data = Event::orderBy('jadwal','desc')->get();
+
+         return view('admin.event.index',compact('data'));
     }
 }

@@ -39,24 +39,24 @@
             <form action="{{ route('store.sk-kelahiran') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-4">
-                    <label class="block text-grey-darker text-sm font-bold mb-2" for="nama">
+                    <label class="block text-gray-800 text-sm font-bold mb-2" for="nama">
                         Nama
                     </label>
-                    <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-grey-darker" name="nama"
+                    <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-gray-800" name="nama"
                         id="nama" type="text" placeholder="Nama" value="{{ old('nama') }}" required>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-grey-darker text-sm font-bold mb-2" for="alamat">
+                    <label class="block text-gray-800 text-sm font-bold mb-2" for="alamat">
                         Alamat
                     </label>
-                    <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-grey-darker" name="alamat"
+                    <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-gray-800" name="alamat"
                         id="alamat" type="text" placeholder="Alamat" value="{{ old('alamat') }}" required>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-grey-darker text-sm font-bold mb-2" for="no_hp">
+                    <label class="block text-gray-800 text-sm font-bold mb-2" for="no_hp">
                         No. Handphone
                     </label>
-                    <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-grey-darker" name="no_hp"
+                    <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-gray-800" name="no_hp"
                         id="no_hp" type="text" placeholder="No. Handphone" value="{{ old('no_hp') }}" required>
                     @error('no_hp')
                     <x-alert-validate>
@@ -65,26 +65,26 @@
                     @enderror
                 </div>
                 <div class="mb-4">
-                    <label class="block text-grey-darker text-sm font-bold mb-2" for="sk_rt">
+                    <label class="block text-gray-800 text-sm font-bold mb-2" for="sk_rt">
                         Surat Keterangan dari RT
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" name="sk_rt"
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800" name="sk_rt"
                         id="sk_rt" type="file" placeholder="Surat Keterangan dari RT" value="{{ old('sk_rt') }}"
                         required>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-grey-darker text-sm font-bold mb-2" for="foto_kk">
+                    <label class="block text-gray-800 text-sm font-bold mb-2" for="foto_kk">
                         Foto Kartu Keluarga
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800"
                         name="foto_kk" id="foto_kk" type="file" placeholder="Foto Kartu Keluarga"
                         value="{{ old('foto_kk') }}" required>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-grey-darker text-sm font-bold mb-2" for="sk_pbb">
+                    <label class="block text-gray-800 text-sm font-bold mb-2" for="sk_pbb">
                         Surat Keterangan PBB
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" name="sk_pbb"
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800" name="sk_pbb"
                         id="sk_pbb" type="file" placeholder="Surat Keterangan PBB" value="{{ old('sk_pbb') }}" re>
                 </div>
                 <div class="flex justify-center">

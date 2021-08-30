@@ -39,24 +39,24 @@
             <form action="{{ route('store.ktp') }}" method="post">
                 @csrf
                 <div class="mb-4">
-                    <label class="block text-grey-darker text-sm font-bold mb-2" for="nama">
+                    <label class="block text-gray-800 text-sm font-bold mb-2" for="nama">
                         Nama
                     </label>
-                    <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-grey-darker" name="nama"
+                    <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-gray-800" name="nama"
                         id="nama" type="text" placeholder="Nama" value="{{ old('nama') }}" required>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-grey-darker text-sm font-bold mb-2" for="alamat">
+                    <label class="block text-gray-800 text-sm font-bold mb-2" for="alamat">
                         Alamat
                     </label>
-                    <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-grey-darker" name="alamat"
+                    <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-gray-800" name="alamat"
                         id="alamat" type="text" placeholder="Alamat" value="{{ old('alamat') }}" required>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-grey-darker text-sm font-bold mb-2" for="no_hp">
+                    <label class="block text-gray-800 text-sm font-bold mb-2" for="no_hp">
                         No. Handphone
                     </label>
-                    <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-grey-darker" name="no_hp"
+                    <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-gray-800" name="no_hp"
                         id="no_hp" type="text" placeholder="No. Handphone" value="{{ old('no_hp') }}" required>
                     @error('no_hp')
                     <x-alert-validate>

@@ -1,6 +1,6 @@
 <x-guest-layout title="{{ $data->title }}">
     <div class="w-full">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png" alt="" class="w-full max-h-96 object-cover">
+        <img src="{{ $data->gambar !== null ? asset('storage/'.$data->gambar) : 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png' }}" alt="" class="w-full max-h-96 relative object-cover object-center">
         <div id="content" class="py-2 px-4">
             <div id="header-content" class="grid md:flex items-center justify-between border-b-2 border-blue-100 gap-4 py-4 mb-4">
                 <div class="text-2xl font-bold">
@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div id="body-content" class="text-justify">
-                {{ $data->desc }}
+               {!! nl2br($data->desc) !!}
             </div>
         </div>
     </div>

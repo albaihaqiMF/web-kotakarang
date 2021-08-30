@@ -24,7 +24,7 @@ class EventCard extends Component
      */
     public function render()
     {
-        $data = Event::orderBy('jadwal','desc')->paginate(4);
+        $data = Event::orderBy('jadwal','desc')->limit(4)->get();
         return view('components.event-card',compact('data'));
     }
 }

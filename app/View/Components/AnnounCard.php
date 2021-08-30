@@ -24,7 +24,7 @@ class AnnounCard extends Component
      */
     public function render()
     {
-        $data = Pengumuman::orderBy('created_at','desc')->paginate(3);
+        $data = Pengumuman::orderBy('created_at','desc')->limit(3)->get();
         return view('components.announ-card',compact('data'));
     }
 }

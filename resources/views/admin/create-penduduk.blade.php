@@ -7,18 +7,18 @@
             </div>
             <div>
                 <div class="mb-4">
-                    <label class="block text-grey-darker text-sm font-bold mb-2" for="nama">
+                    <label class="block text-gray-800 text-sm font-bold mb-2" for="nama">
                         Nama
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" name="nama"
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800" name="nama"
                         id="nama" type="text" placeholder="Nama" value="{{ old('nama') }}" required>
                 </div>
                 <div class="grid md:grid-cols-3 gap-4">
                     <div class="mb-4">
-                        <label class="block text-grey-darker text-sm font-bold mb-2" for="nik">
+                        <label class="block text-gray-800 text-sm font-bold mb-2" for="nik">
                             NIK
                         </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800"
                             name="nik" id="nik" type="text" placeholder="NIK" value="{{ old('nik') }}" required>
                         @error('nik')
                         <x-alert-validate>
@@ -27,10 +27,10 @@
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <label class="block text-grey-darker text-sm font-bold mb-2" for="no_kk">
+                        <label class="block text-gray-800 text-sm font-bold mb-2" for="no_kk">
                             No. KK
                         </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800"
                             name="no_kk" id="no_kk" type="text" placeholder="No. KK (Boleh Kosong)"
                             value="{{ old('no_kk') }}">
                         @error('no_kk')
@@ -41,10 +41,10 @@
                     </div>
 
                     <div class="mb-4">
-                        <label class="block text-grey-darker text-sm font-bold mb-2" for="kewarganegaraan">
+                        <label class="block text-gray-800 text-sm font-bold mb-2" for="kewarganegaraan">
                             Kewarganegaraan
                         </label>
-                        <select class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                        <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800"
                             name="kewarganegaraan" id="kewarganegaraan" placeholder="Kewarganegaraan"
                             value="{{ old('kewarganegaraan') }}" required>
                             @foreach ($negara as $item)
@@ -55,10 +55,10 @@
                 </div>
                 <div class="grid md:grid-cols-3 gap-4">
                     <div class="mb-4">
-                        <label class="block text-grey-darker text-sm font-bold mb-2" for="jenis_kelamin">
+                        <label class="block text-gray-800 text-sm font-bold mb-2" for="jenis_kelamin">
                             Jenis Kelamin
                         </label>
-                        <select class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                        <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800"
                             name="jenis_kelamin" id="jenis_kelamin" placeholder="Jenis Kelamin"
                             value="{{ old('jenis_kelamin') }}" required>
                             @foreach ($gender as $item)
@@ -67,28 +67,28 @@
                         </select>
                     </div>
                     <div class="mb-4">
-                        <label class="block text-grey-darker text-sm font-bold mb-2" for="tempat_lahir">
+                        <label class="block text-gray-800 text-sm font-bold mb-2" for="tempat_lahir">
                             Tempat Lahir
                         </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800"
                             name="tempat_lahir" id="tempat_lahir" type="text" placeholder="Tempat Lahir"
                             value="{{ old('tempat_lahir') }}" required>
                     </div>
                     <div class="mb-4">
-                        <label class="block text-grey-darker text-sm font-bold mb-2" for="tanggal_lahir">
+                        <label class="block text-gray-800 text-sm font-bold mb-2" for="tanggal_lahir">
                             Tanggal Lahir
                         </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800"
                             name="tanggal_lahir" id="tanggal_lahir" type="date" placeholder="Tanggal Lahir"
                             value="{{ old('tanggal_lahir') }}" required>
                     </div>
                 </div>
                 <div class="grid md:grid-cols-2 gap-4">
                     <div class="mb-4">
-                        <label class="block text-grey-darker text-sm font-bold mb-2" for="agama">
+                        <label class="block text-gray-800 text-sm font-bold mb-2" for="agama">
                             Agama
                         </label>
-                        <select class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                        <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800"
                             name="agama" id="agama" placeholder="Agama" value="{{ old('agama') }}" required>
                             @foreach ($agama as $item)
                             <option value="{{ $item->code }}">{{ $item->title }}</option>
@@ -96,10 +96,10 @@
                         </select>
                     </div>
                     <div class="mb-4">
-                        <label class="block text-grey-darker text-sm font-bold mb-2" for="status_pernikahan">
+                        <label class="block text-gray-800 text-sm font-bold mb-2" for="status_pernikahan">
                             Status Pernikahan
                         </label>
-                        <select class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                        <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800"
                             name="status_pernikahan" id="status_pernikahan" placeholder="Status Pernikahan"
                             value="{{ old('status_pernikahan') }}" required>
                             @foreach ($status as $item)
@@ -112,10 +112,10 @@
             <div class="grid md:grid-cols-2 gap-4">
 
                 <div class="mb-4">
-                    <label class="block text-grey-darker text-sm font-bold mb-2" for="pendidikan">
+                    <label class="block text-gray-800 text-sm font-bold mb-2" for="pendidikan">
                         Pendidikan
                     </label>
-                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800"
                         name="pendidikan" id="pendidikan" placeholder="Pendidikan" value="{{ old('pendidikan') }}"
                         required>
                         @foreach ($pendidikan as $item)
@@ -124,10 +124,10 @@
                     </select>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-grey-darker text-sm font-bold mb-2" for="jenis_pekerjaan">
+                    <label class="block text-gray-800 text-sm font-bold mb-2" for="jenis_pekerjaan">
                         Pekerjaan
                     </label>
-                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800"
                         name="jenis_pekerjaan" id="jenis_pekerjaan" placeholder="Pekerjaan"
                         value="{{ old('jenis_pekerjaan') }}" required>
                         @foreach ($pekerjaan as $item)
@@ -139,10 +139,10 @@
             </div>
             <div class="grid md:grid-cols-2 gap-4">
                 <div class="mb-4">
-                    <label class="block text-grey-darker text-sm font-bold mb-2" for="no_paspor">
+                    <label class="block text-gray-800 text-sm font-bold mb-2" for="no_paspor">
                         Nomor Paspor
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800"
                         name="no_paspor" id="no_paspor" type="text" placeholder="Nomor Paspor"
                         value="{{ old('no_paspor') }}">
                     @error('no_paspor')
@@ -152,10 +152,10 @@
                     @enderror
                 </div>
                 <div class="mb-4">
-                    <label class="block text-grey-darker text-sm font-bold mb-2" for="no_kitas">
+                    <label class="block text-gray-800 text-sm font-bold mb-2" for="no_kitas">
                         Nomor Kitas/Kitap
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800"
                         name="no_kitas" id="no_kitas" type="text" placeholder="Nomor Kitas/Kitap"
                         value="{{ old('no_kitas') }}">
                     @error('no_kitas')
@@ -167,18 +167,18 @@
             </div>
             <div class="grid md:grid-cols-2 gap-4">
                 <div class="mb-4">
-                    <label class="block text-grey-darker text-sm font-bold mb-2" for="nama_ayah">
+                    <label class="block text-gray-800 text-sm font-bold mb-2" for="nama_ayah">
                         Nama Ayah
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800"
                         name="nama_ayah" id="nama_ayah" type="text" placeholder="Nama Ayah"
                         value="{{ old('nama_ayah') }}" required>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-grey-darker text-sm font-bold mb-2" for="nama_ibu">
+                    <label class="block text-gray-800 text-sm font-bold mb-2" for="nama_ibu">
                         Nama Ibu
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800"
                         name="nama_ibu" id="nama_ibu" type="text" placeholder="Nama Ibu" value="{{ old('nama_ibu') }}"
                         required>
                 </div>

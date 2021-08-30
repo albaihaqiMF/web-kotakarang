@@ -9,5 +9,5 @@ class Pengumuman extends Model
 {
     use HasFactory;
 
-    protected $guard;
+    protected $fillable  = ['title','slug','desc','gambar'];
 }

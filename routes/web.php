@@ -8,16 +8,6 @@ use App\Http\Controllers\JSON\ApiController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 // --------------------------------------------------------------------------- //
 // --------------------------------GUEST ROUTE-------------------------------- //
 // --------------------------------------------------------------------------- //
@@ -65,6 +55,20 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth']], function () {
     Route::get('/data-keluarga/create', [AdminController::class, 'createKeluarga'])->name('admin.keluarga.create');
     Route::post('/data-keluarga/store', [AdminController::class, 'storeKeluarga'])->name('admin.keluarga.store');
     Route::get('/map', [RouteAdminController::class, 'map'])->name('admin.map');
+
+    // ---- ADMIN PENGUMUMAN ---- //
+    Route::get('/pengumuman', [RouteAdminController::class, 'pengumuman'])->name('admin.pengumuman');
+    Route::get('/pengumuman/create', [AdminController::class, 'createPengumuman'])->name('admin.pengumuman.create');
+    Route::post('/pengumuman/store', [AdminController::class, 'storePengumuman'])->name('admin.pengumuman.store');
+    Route::get('/pengumuman//{pengumuman:slug}/edit', [AdminController::class, 'editPengumuman'])->name('admin.pengumuman.edit');
+    Route::patch('/pengumuman/{pengumuman:slug}/update', [AdminController::class, 'updatePengumuman'])->name('admin.pengumuman.update');
+
+    // ---- ADMIN EVENT ---- //
+    Route::get('/event', [RouteAdminController::class, 'event'])->name('admin.event');
+    Route::get('/event/create', [AdminController::class, 'createEvent'])->name('admin.event.create');
+    Route::post('/event/store', [AdminController::class, 'storeEvent'])->name('admin.event.store');
+    Route::get('/event/{event:slug}/edit', [AdminController::class, 'editEvent'])->name('admin.event.edit');
+    Route::patch('/event/{event:slug}/update', [AdminController::class, 'updateEvent'])->name('admin.event.update');
 
     // --------------------------------------------------------------------------- //
     // ------------------------------ADMIN SERVICES------------------------------- //

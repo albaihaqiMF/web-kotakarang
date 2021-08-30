@@ -4,7 +4,7 @@
     <div class="shadow overflow-hidden rounded-md w-full h-auto md:h-56 lg:h-44 mb-4">
         <div class="grid md:grid-cols-4 gap-1">
             <div>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"
+                <img src="{{ $item->gambar !== null ? asset('storage/'.$item->gambar) : 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png' }}"
                     alt="" class="w-full h-48 md:h-full object-cover">
             </div>
             <div class="md:col-span-3 p-3">
