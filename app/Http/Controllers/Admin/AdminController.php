@@ -97,9 +97,9 @@ class AdminController extends Controller
     }
     public function fileStore($name, $path)
     {
-        $date = date('Y-m-d_H.i.s', strtotime(now()));
-        $fileName = strtoupper($path) . '-' . $date . '-' . Str::random(4) . '-' . Str::random(4) . '-' . Str::random(3) .  '.' . $name->extension();
-        $name->storeAs('public', $fileName);
+        // $date = date('Y-m-d_H.i.s', strtotime(now()));
+        // $fileName = strtoupper($path) . '-' . $date . '-' . Str::random(4) . '-' . Str::random(4) . '-' . Str::random(3) .  '.' . $name->extension();
+        $fileName = $name->store('public');
 
         return $fileName;
     }

@@ -11,11 +11,9 @@ use Illuminate\Support\Str;
 
 class ServiceController extends Controller
 {
-    public function fileStore($name, $path)
+    public function fileStore($name)
     {
-        $date = date('Y-m-d_H.i.s', strtotime(now()));
-        $fileName = strtoupper($path) . '-' . $date . '-' . Str::random(4) . '-' . Str::random(4) . '-' . Str::random(3) .  '.' . $name->extension();
-        $name->storeAs('public', $fileName);
+        $fileName = $name->store('public');
 
         return $fileName;
     }
@@ -111,19 +109,19 @@ class ServiceController extends Controller
         $query = $r->q;
         switch ($type) {
             case '1':
-                $data = PembuatanKTP::where('deleted_at',null)->where('nama', 'like', '%' . strtoupper($query) . '%')
+                $data = PembuatanKTP::where('deleted_at', null)->where('nama', 'like', '%' . strtoupper($query) . '%')
                     ->orWhere('no_hp', $query)->get();
                 break;
             case '2':
-                $data = Kelahiran::where('deleted_at',null)->where('nama', 'like', '%' . strtoupper($query) . '%')
+                $data = Kelahiran::where('deleted_at', null)->where('nama', 'like', '%' . strtoupper($query) . '%')
                     ->orWhere('no_hp', $query)->get();
                 break;
             case '3':
-                $data = Kematian::where('deleted_at',null)->where('nama', 'like', '%' . strtoupper($query) . '%')
+                $data = Kematian::where('deleted_at', null)->where('nama', 'like', '%' . strtoupper($query) . '%')
                     ->orWhere('no_hp', $query)->get();
                 break;
             case '4':
-                $data = PembuatanKk::where('deleted_at',null)->where('nama', 'like', '%' . strtoupper($query) . '%')
+                $data = PembuatanKk::where('deleted_at', null)->where('nama', 'like', '%' . strtoupper($query) . '%')
                     ->orWhere('no_hp', $query)->get();
                 break;
             default:
