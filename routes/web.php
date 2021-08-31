@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminServiceController;
 use App\Http\Controllers\Guest\HomeController;
 use App\Http\Controllers\JSON\ApiController;
 use App\Http\Controllers\ServiceController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 // --------------------------------------------------------------------------- //
@@ -86,6 +87,10 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth']], function () {
     // ---
     Route::get('/sk-kematian', [AdminServiceController::class, 'sk_kematian'])->name('admin.sk-kematian');
     Route::get('/sk-kematian/{kematian:id}', [AdminServiceController::class, 'kematianShow'])->name('admin.sk-kematian.detail');
+
+    Route::get('/foo', function () {
+        Artisan::call('storage:link');
+    });
 });
 
 

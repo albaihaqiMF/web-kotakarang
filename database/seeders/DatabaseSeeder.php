@@ -31,19 +31,19 @@ class DatabaseSeeder extends Seeder
             'email' => 'kkn@unila',
             'password' => Hash::make('bismillahkkn')
         ]);
-        Keluarga::create([
-            'no_kk' => '1871180609130005',
-            'no_surat' => '18710370881',
-            'kepala_keluarga' => 'ATHORID',
-            'alamat' => 'JL. KETAPANG LK001',
-            'rt' => '015',
-            'kelurahan' => '1122003',
-            'kecamatan' => '1123003',
-            'kabupaten' => '1124001',
-            'provinsi' => '1125001',
-            'kode_pos' => '35128',
-            'tanggal_keluar' => '06-09-2013'
-        ]);
+        // Keluarga::create([
+        //     'no_kk' => '1871180609130005',
+        //     'no_surat' => '18710370881',
+        //     'kepala_keluarga' => 'ATHORID',
+        //     'alamat' => 'JL. KETAPANG LK001',
+        //     'rt' => '015',
+        //     'kelurahan' => '1122003',
+        //     'kecamatan' => '1123003',
+        //     'kabupaten' => '1124001',
+        //     'provinsi' => '1125001',
+        //     'kode_pos' => '35128',
+        //     'tanggal_keluar' => '06-09-2013'
+        // ]);
         $master = [
             //Kelurahan 1122
             [
