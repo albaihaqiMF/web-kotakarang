@@ -95,7 +95,7 @@ class AdminController extends Controller
 
         return redirect(route('admin.data-penduduk'));
     }
-    public function fileStore($name, $path)
+    public function fileStore($name)
     {
         // $date = date('Y-m-d_H.i.s', strtotime(now()));
         // $fileName = strtoupper($path) . '-' . $date . '-' . Str::random(4) . '-' . Str::random(4) . '-' . Str::random(3) .  '.' . $name->extension();
