@@ -98,8 +98,8 @@ class AdminController extends Controller
     public function fileStore($name, $path)
     {
         $date = date('Y-m-d_H.i.s', strtotime(now()));
-        $fileName = strtoupper($path) . Str::random(4) . '-' . Str::random(4) . '-' . Str::random(3) .  '.' . $name->extension();
-        $name->store('public', $fileName);
+        $fileName = strtoupper($path) . '-' . $date . '-' . Str::random(4) . '-' . Str::random(4) . '-' . Str::random(3) .  '.' . $name->extension();
+        $name->storeAs('public', $fileName);
 
         return $fileName;
     }
@@ -117,7 +117,7 @@ class AdminController extends Controller
         ]);
         $attr = $r->all();
         $attr['title'] = ucwords(strtolower($r->title));
-        $attr['slug'] = Str::slug($r->title) . '-' . Str::random(4) . '-' . date('d-m-Y', strtotime(now()));
+        $attr['slug'] = Str::slug($r->title) . '-' . Str::random(4).'-'.date('d-m-Y',strtotime(now()));
         if ($r->gambar !== null) {
             $attr['gambar'] = $this->fileStore($r->gambar, 'pengumuman');
         }
@@ -162,7 +162,7 @@ class AdminController extends Controller
             'desc' => 'required',
         ]);
         $attr['title'] = ucwords(strtolower($request->title));
-        $attr['slug'] = Str::slug($request->title) . '-' . Str::random(4) . '-' . date('d-m-Y', strtotime(now()));
+        $attr['slug'] = Str::slug($request->title) . '-' . Str::random(4).'-'.date('d-m-Y',strtotime(now()));
 
         Event::create($attr);
 
