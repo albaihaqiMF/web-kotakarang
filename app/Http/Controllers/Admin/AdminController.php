@@ -140,7 +140,7 @@ class AdminController extends Controller
         ]);
 
         $attr['title'] = ucwords(strtolower($request->title));
-        $request->gambar !== null && $attr['gambar'] = $this->fileStore($request->gambar, 'pengumuman');
+        $request->gambar !== null && $attr['gambar'] = $this->fileStore($request->file('gambar'), 'pengumuman');
         $pengumuman->update($attr);
         session()->flash('success', 'Data ' . $request->title . ' berhasil diperbarui');
         return redirect(route('admin.pengumuman'));
