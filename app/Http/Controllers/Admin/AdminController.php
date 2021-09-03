@@ -95,11 +95,9 @@ class AdminController extends Controller
 
         return redirect(route('admin.data-penduduk'));
     }
-    public function fileStore($name)
+    public function fileStore($file, $name)
     {
-        // $date = date('Y-m-d_H.i.s', strtotime(now()));
-        // $fileName = strtoupper($path) . '-' . $date . '-' . Str::random(4) . '-' . Str::random(4) . '-' . Str::random(3) .  '.' . $name->extension();
-        $fileName = $name->store('public');
+        $fileName = $file->store('public');
 
         return $fileName;
     }
@@ -109,17 +107,17 @@ class AdminController extends Controller
     {
         return view('admin.pengumuman.create');
     }
-    public function storePengumuman(Request $r)
+    public function storePengumuman(Request $request)
     {
-        $this->validate($r, [
+        $this->validate($request, [
             'title' => 'required',
             'desc' => 'required',
         ]);
-        $attr = $r->all();
-        $attr['title'] = ucwords(strtolower($r->title));
-        $attr['slug'] = Str::slug($r->title) . '-' . Str::random(4).'-'.date('d-m-Y',strtotime(now()));
-        if ($r->gambar !== null) {
-            $attr['gambar'] = $this->fileStore($r->gambar, 'pengumuman');
+        $attr = $request->all();
+        $attr['title'] = ucwords(strtolower($request->title));
+        $attr['slug'] = Str::slug($request->title) . '-' . Str::random(4) . '-' . date('d-m-Y', strtotime(now()));
+        if ($request->gambar !== null) {
+            $attr['gambar'] = $this->fileStore($request->file('gambar'), 'pengumuman');
         }
 
         Pengumuman::create($attr);
@@ -162,7 +160,7 @@ class AdminController extends Controller
             'desc' => 'required',
         ]);
         $attr['title'] = ucwords(strtolower($request->title));
-        $attr['slug'] = Str::slug($request->title) . '-' . Str::random(4).'-'.date('d-m-Y',strtotime(now()));
+        $attr['slug'] = Str::slug($request->title) . '-' . Str::random(4) . '-' . date('d-m-Y', strtotime(now()));
 
         Event::create($attr);
 

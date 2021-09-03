@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Route;
 // --------------------------------------------------------------------------- //
 // --------------------------------GUEST ROUTE-------------------------------- //
 // --------------------------------------------------------------------------- //
+
+Route::get('/testFile', [HomeController::class, 'testFile']);
+
+
+
 Route::get('/', [HomeController::class, 'beranda'])->name('welcome');
 Route::get('/pengumuman', [HomeController::class, 'pengumuman'])->name('pengumuman');
 Route::get('/pengumuman/{pengumuman:slug}', [HomeController::class, 'pengumumanShow'])->name('pengumuman.show');

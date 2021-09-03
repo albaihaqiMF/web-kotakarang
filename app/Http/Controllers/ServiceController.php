@@ -11,9 +11,9 @@ use Illuminate\Support\Str;
 
 class ServiceController extends Controller
 {
-    public function fileStore($name)
+    public function fileStore($file, $name)
     {
-        $fileName = $name->store('public');
+        $fileName = $file->store('public');
 
         return $fileName;
     }
