@@ -13,7 +13,9 @@ class ServiceController extends Controller
 {
     public function fileStore($file, $name)
     {
-        $fileName = $file->store('public');
+
+        $fileName = $name.'-'.time().'.'.$file->extension();
+        $file->storeAs('public',$fileName);
 
         return $fileName;
     }
