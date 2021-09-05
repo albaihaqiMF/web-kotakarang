@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Event;
 use App\Models\Pengumuman;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -40,17 +39,17 @@ class HomeController extends Controller
     public function pengumumanShow(Pengumuman $pengumuman)
     {
         $data = $pengumuman;
-        return view('guest.pengumuman.show', compact('data'));
+        return view('guest.pengumuman.show',compact('data'));
     }
 
     public function event()
     {
-        $data = Event::orderBy('jadwal', 'desc')->paginate(6);
+         $data = Event::orderBy('jadwal','desc')->paginate(5);
 
-        return view('guest.event.index', compact('data'));
+         return view('guest.event.index',compact('data'));
     }
     public function eventShow(Event $event)
     {
-        return view('guest.event.show', ['data' => $event]);
+        return view('guest.event.show',['data'=>$event]);
     }
 }
