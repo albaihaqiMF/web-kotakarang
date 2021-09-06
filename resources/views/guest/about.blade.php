@@ -9,21 +9,24 @@
             </h1>
         </div>
     </div>
-    <div class="w-full py-4 px-8">
-        <div class="grid md:grid-cols-2 gap-4">
+    <x-container class="bg-gradient-to-b from-blue-300 via-blue-200 to-white">
+        <div class="w-full">
+            <div class="text-4xl font-semibold text-red-500 mb-4 text-center">Visi dan Misi Kelurahan Kota Karang</div>
+        </div>
+        <div class="grid gap-4">
             <div>
                 <div class="flex flex-col justify-around">
-                    <h1 class="text-2xl md:text-3xl font-bold">Visi</h1>
+                    <h1 class="text-2xl md:text-3xl font-bold text-center py-4">Visi</h1>
                     <div class="border-t-4 mt-4 w-full rounded-full border-cyan-500"></div>
                 </div>
-                <p class="text-justify font-semibold">
+                <p class="text-center font-semibold">
                     Terwujudnya peningkatan pelayanan masyarakat dan kinerja aparatur melalui partisipasi masyarakat
                     dalam pembangunan
                 </p>
             </div>
             <div>
                 <div class="flex flex-col justify-around">
-                    <h1 class="text-2xl md:text-3xl font-bold">Misi</h1>
+                    <h1 class="text-2xl md:text-3xl font-bold text-center py-4">Misi</h1>
                     <div class="border-t-4 mt-4 w-full rounded-full border-cyan-500"></div>
                 </div>
                 <ul type="1" class="text-justify font-semibold list-decimal px-4">
@@ -34,5 +37,5 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </x-container>
 </x-guest-layout>
