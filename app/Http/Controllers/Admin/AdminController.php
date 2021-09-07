@@ -26,25 +26,20 @@ class AdminController extends Controller
 
     public function storeKeluarga(Request $request)
     {
-        $request->validate([
-            'no_kk' => 'unique:penduduks|numeric',
+        $this->validate($request, [
+            'no_kk' => 'required|numeric|unique:keluargas',
+            'rw' => 'numeric|required',
+            'rt' => 'numeric|required',
+            'kode_pos' => 'numeric|required'
         ]);
-        $data = $request->all();
+        $attr = $request->all();
+        $attr['kepala_keluarga'] = strtoupper($request->kepala_keluarga);
 
-        Keluarga::create([
-            'no_kk' => $data['no_kk'],
-            'kepala_keluarga' => $data['kepala_keluarga'],
-            'alamat' => $data['alamat'],
-            'rt' => $data['rt'],
-            'rw' => $data['rw'],
-            'kelurahan' => $data['kelurahan'],
-            'kecamatan' => $data['kecamatan'],
-            'kabupaten' => $data['kabupaten'],
-            'provinsi' => $data['provinsi'],
-            'kode_pos' => $data['kode_pos'],
-        ]);
+        Keluarga::create($attr);
 
-        return redirect(route('admin.keluarga.create'));
+        session()->flash('success','Data Keluarga dengan Nomor KK. '.$attr['no_kk'].' berhasil ditambahkan');
+
+        return redirect(route('admin.data-keluarga'));
     }
 
 
@@ -71,7 +66,8 @@ class AdminController extends Controller
     public function storePenduduk(Request $request)
     {
         $request->validate([
-            'nik' => 'unique:penduduks|numeric',
+            'nik' => 'numeric|unique:penduduks',
+            'no_kk' => 'numeric',
         ]);
         Penduduk::create([
             'nama' =>  Str::upper($request['nama']),

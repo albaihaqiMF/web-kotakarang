@@ -9,6 +9,8 @@
             <thead>
                 <tr class="bg-blue-500">
                     <th class="border-2 p-1">Nama</th>
+                    <th class="border-2 p-1">KK</th>
+                    <th class="border-2 p-1">NIK</th>
                     <th class="border-2 p-1">No. Handphone</th>
                     <th class="border-2 p-1">Alamat</th>
                     <th class="border-2 p-1">Status</th>
@@ -20,6 +22,8 @@
                 @foreach ($data as $item)
                 <tr class="hover:bg-blue-200">
                     <td class="border-2 p-1">{{ $item->nama ?? '-' }}</td>
+                    <td class="border-2 p-1">{{ $item->kk ?? '-' }}</td>
+                    <td class="border-2 p-1">{{ $item->nik ?? '-' }}</td>
                     <td class="border-2 p-1">{{ $item->no_hp ?? '-' }}</td>
                     <td class="border-2 p-1">{{ $item->alamat ?? '-' }}</td>
                     <td class="border-2 p-1">{{ $item->status === 1 ? 'Telah Diverifikasi' : 'Belum Diverifikasi' }}

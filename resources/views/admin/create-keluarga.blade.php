@@ -40,6 +40,11 @@
                         </label>
                         <input required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800"
                             name="rt" id="rt" type="text" placeholder="RT" value="{{ old('rt') }}">
+                        @error('rt')
+                        <x-alert-validate>
+                            {{ Str::upper($message) }}
+                        </x-alert-validate>
+                        @enderror
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-800 text-sm font-bold mb-2" for="rw">
@@ -47,6 +52,11 @@
                         </label>
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800" name="rw"
                             id="rw" type="text" placeholder="RW" value="{{ old('rw') }}">
+                        @error('rw')
+                        <x-alert-validate>
+                            {{ Str::upper($message) }}
+                        </x-alert-validate>
+                        @enderror
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-800 text-sm font-bold mb-2" for="kode_pos">
@@ -55,6 +65,11 @@
                         <input required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800"
                             name="kode_pos" id="kode_pos" type="text" placeholder="Kode Pos"
                             value="{{ old('kode_pos') }}">
+                        @error('kode_pos')
+                        <x-alert-validate>
+                            {{ Str::upper($message) }}
+                        </x-alert-validate>
+                        @enderror
                     </div>
                 </div>
                 <div class="grid md:grid-cols-2 gap-3">

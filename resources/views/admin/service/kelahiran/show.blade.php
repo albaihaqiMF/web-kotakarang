@@ -16,11 +16,15 @@
                     <p class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800">
                         {{ $kelahiran->no_hp }}</p>
                 </div>
-                <div class="grid grid-cols-3 gap-3">
+                <div class="grid grid-cols-2 gap-3">
 
                     <div class="mb-4 P-4">
                         <h4 class="block text-gray-800 text-sm font-bold mb-2" for="alamat">Surat Ketengan RT:</h4>
                         <img src="{{ asset('storage/'.$kelahiran->sk_rt) }}" alt="{{ $kelahiran->sk_rt }}">
+                    </div>
+                    <div class="mb-4 P-4">
+                        <h4 class="block text-gray-800 text-sm font-bold mb-2" for="alamat">Surat Ketengan RS atau Bidan:</h4>
+                        <img src="{{ asset('storage/'.$kelahiran->sk_rs) }}" alt="{{ $kelahiran->sk_rs }}">
                     </div>
                     <div class="mb-4 P-4">
                         <h4 class="block text-gray-800 text-sm font-bold mb-2" for="alamat">Foto Kartu Keluarga:</h4>

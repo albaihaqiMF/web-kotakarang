@@ -69,7 +69,7 @@
                         Surat Keterangan dari RT
                     </label>
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800" name="sk_rt"
-                        id="sk_rt" type="file" placeholder="Surat Keterangan dari RT" value="{{ old('sk_rt') }}"
+                        id="sk_rt" type="file" accept="image/*" placeholder="Surat Keterangan dari RT" value="{{ old('sk_rt') }}"
                         required>
                 </div>
                 <div class="mb-4">
@@ -77,15 +77,23 @@
                         Foto Kartu Keluarga
                     </label>
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800"
-                        name="foto_kk" id="foto_kk" type="file" placeholder="Foto Kartu Keluarga"
+                        name="foto_kk" id="foto_kk" type="file" accept="image/*" placeholder="Foto Kartu Keluarga"
                         value="{{ old('foto_kk') }}" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-800 text-sm font-bold mb-2" for="sk_rs">
+                        Surat Kelahiran dari Bidan atau Rumah Sakit
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800"
+                        name="sk_rs" id="sk_rs" type="file" accept="image/*" placeholder="Surat Kelahiran Dari RS atau Bidan"
+                        value="{{ old('sk_rs') }}" required>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-800 text-sm font-bold mb-2" for="sk_pbb">
                         Surat Keterangan PBB
                     </label>
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800" name="sk_pbb"
-                        id="sk_pbb" type="file" placeholder="Surat Keterangan PBB" value="{{ old('sk_pbb') }}" re>
+                        id="sk_pbb" type="file" accept="image/*" placeholder="Surat Keterangan PBB" value="{{ old('sk_pbb') }}" re>
                 </div>
                 <div class="flex justify-center">
                     <button type="submit"

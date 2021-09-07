@@ -16,6 +16,8 @@ class CreatePembuatanKTPSTable extends Migration
         Schema::create('pembuatan_k_t_p_s', function (Blueprint $table) {
             $table->id();
             $table->string('nama',63);
+            $table->bigInteger('nik')->unique();
+            $table->bigInteger('kk');
             $table->longText('alamat');
             $table->string('no_hp',15);
             $table->integer('status')->default(0);

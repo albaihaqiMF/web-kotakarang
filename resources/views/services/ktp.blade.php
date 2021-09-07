@@ -45,6 +45,22 @@
                     <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-gray-800" name="nama"
                         id="nama" type="text" placeholder="Nama" value="{{ old('nama') }}" required>
                 </div>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="mb-4">
+                      <label class="block text-grey-darker text-sm font-bold mb-2" for="nik">
+                           NIK
+                      </label>
+                      <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-grey-darker" name="nik" id="nik"
+                           type="text" placeholder="NIK" value="{{ old('nik') }}" required>
+                    </div>
+                    <div class="mb-4">
+                      <label class="block text-grey-darker text-sm font-bold mb-2" for="kk">
+                           Nomor KK
+                      </label>
+                      <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-grey-darker" name="kk" id="kk"
+                           type="text" placeholder="Nomor KK" value="{{ old('kk') }}" required>
+                    </div>
+                </div>
                 <div class="mb-4">
                     <label class="block text-gray-800 text-sm font-bold mb-2" for="alamat">
                         Alamat

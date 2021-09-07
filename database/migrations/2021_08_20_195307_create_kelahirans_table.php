@@ -19,6 +19,7 @@ class CreateKelahiransTable extends Migration
             $table->longText('alamat');
             $table->string('no_hp',16);
             $table->string('sk_rt');
+            $table->string('sk_rs');
             $table->string('foto_kk');
             $table->string('sk_pbb');
             $table->integer('status')->default(0);

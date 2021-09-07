@@ -13,7 +13,7 @@ $(function () {
                 datasets: [
                     {
                         label: title,
-                        data: [5 - result.count, result.count],
+                        data: [2778 - result.count, result.count],
                         backgroundColor: ["rgb(255,197,63)", "#23CF51"],
                         borderWidth: 0,
                         weight:.1,

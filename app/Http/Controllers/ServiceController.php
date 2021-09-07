@@ -26,16 +26,17 @@ class ServiceController extends Controller
     }
     public function store_ktp()
     {
-        request()->validate([
+        $this->validate(request(),[
             'nama' => 'required',
             'alamat' => 'required',
             'no_hp' => 'required|numeric',
+            'nik' => 'required|numeric',
+            'kk' => 'required|numeric',
         ]);
-        PembuatanKTP::create([
-            'nama' => strtoupper(request('nama')),
-            'alamat' => request('alamat'),
-            'no_hp' => request('no_hp'),
-        ]);
+        $attr = request()->all();
+        $attr['nama'] = strtoupper(request('nama'));
+        // return request();
+        PembuatanKTP::create($attr);
 
         session()->flash('success', 'Berhasil mendaftarkan Data');
         return back();
@@ -56,6 +57,7 @@ class ServiceController extends Controller
         ]);
 
         $sk_rt = $this->fileStore(request()->file('sk_rt'), 'sk_rt');
+        $sk_rs = $this->fileStore(request()->file('sk_rs'), 'sk_rs');
         $foto_kk = $this->fileStore(request()->file('foto_kk'), 'foto_kk');
         $sk_pbb = $this->fileStore(request()->file('sk_pbb'), 'sk_pbb');
 
@@ -64,6 +66,7 @@ class ServiceController extends Controller
             'alamat' => request('alamat'),
             'no_hp' => request('no_hp'),
             'sk_rt' => $sk_rt,
+            'sk_rs' => $sk_rs,
             'foto_kk' => $foto_kk,
             'sk_pbb' => $sk_pbb,
         ]);
