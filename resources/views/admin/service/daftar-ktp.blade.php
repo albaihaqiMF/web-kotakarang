@@ -1,8 +1,8 @@
 <x-admin-layout title="Pendaftar KTP">
     @if (session()->has('option'))
-        <x-alert-success>
-            {{ session()->get('option') }}
-        </x-alert-success>
+    <x-alert-success>
+        {{ session()->get('option') }}
+    </x-alert-success>
     @endif
     <div class="p-2 overflow-auto">
         <table class="table-auto rounded-lg w-full border border-collapse my-1 relative z-0" id="table">
@@ -15,7 +15,9 @@
                     <th class="border-2 p-1">Alamat</th>
                     <th class="border-2 p-1">Status</th>
                     <th class="border-2 p-1">Tanggal Daftar</th>
+                    @if (Auth::user()->role === 2)
                     <th class="border-2 p-1">Option</th>
+                    @endif
                 </tr>
             </thead>
             <tbody>
@@ -29,6 +31,7 @@
                     <td class="border-2 p-1">{{ $item->status === 1 ? 'Telah Diverifikasi' : 'Belum Diverifikasi' }}
                     </td>
                     <td class="border-2 p-1">{{ $item->created_at ?? '-' }}</td>
+                    @if (Auth::user()->role === 2)
                     <td class="border-2 p-1">
                         <div class="flex justify-center gap-2">
                             @if ($item->status === 0)
@@ -40,11 +43,12 @@
                             @endif
                             <x-modal title="Hapus Data" color="red" button="Hapus" link="{{ route('admin.daftar-ktp.delete', [
                                 'id'=>$item->id
-                            ]) }}">
+                                ]) }}">
                                 Apakah ingin menghapus data {{ $item->nama }}?
                             </x-modal>
                         </div>
                     </td>
+                    @endif
                 </tr>
                 @endforeach
             </tbody>

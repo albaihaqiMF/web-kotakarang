@@ -23,7 +23,8 @@
                         <img src="{{ asset('storage/'.$kelahiran->sk_rt) }}" alt="{{ $kelahiran->sk_rt }}">
                     </div>
                     <div class="mb-4 P-4">
-                        <h4 class="block text-gray-800 text-sm font-bold mb-2" for="alamat">Surat Ketengan RS atau Bidan:</h4>
+                        <h4 class="block text-gray-800 text-sm font-bold mb-2" for="alamat">Surat Ketengan RS atau
+                            Bidan:</h4>
                         <img src="{{ asset('storage/'.$kelahiran->sk_rs) }}" alt="{{ $kelahiran->sk_rs }}">
                     </div>
                     <div class="mb-4 P-4">
@@ -37,9 +38,12 @@
                     </div>
                 </div>
             </div>
+            @if (Auth::user()->role === 2)
+
             <x-modal title="Verifikasi Data" button="Verifikasi" color="green" link="null">
                 Apa sudah yakin untuk diverifikasi?
             </x-modal>
+            @endif
         </div>
     </div>
 </x-admin-layout>

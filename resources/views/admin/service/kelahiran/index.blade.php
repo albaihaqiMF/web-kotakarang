@@ -25,7 +25,9 @@
                             <a href="{{ route('admin.sk-kelahiran.detail', [
                                 'kelahiran' => $item->id
                             ]) }}" class="p-1 text-center bg-green-500 rounded-md">Lihat</a>
-                            <a href="" class="p-1 text-center bg-red-500 rounded-md">Delete</a>
+                            @if (Auth::user()->role === 2)
+                            <a href="" class="p-1 text-center bg-red-500 rounded-md">Hapus</a>
+                            @endif
                         </div>
                     </td>
                 </tr>

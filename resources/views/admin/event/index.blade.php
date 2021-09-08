@@ -3,8 +3,10 @@
         /Acara
     </x-slot>
     <div class="w-full py-4 px-3">
+        @if (Auth::user()->role === 2)
         <a href="{{ route('admin.event.create') }}"
             class="px-6 py-3 rounded-md bg-gradient-to-br from-blue-500 to-cyan-500">Buat Baru</a>
+        @endif
     </div>
     <div class="p-4">
         <table id="table" class="table table-auto border-collapse">
@@ -50,10 +52,12 @@
                                     </div>
                                 </div>
                             </x-modal>
+                            @if (Auth::user()->role === 2)
                             <a href="{{ route('admin.event.edit',['event'=>$item->slug]) }}" title="edit"
                                 class="px-4 py-1 bg-green-500 rounded-md text-green-50 hover:bg-green-50 border hover:border-green-500 hover:text-green-500">
                                 <i class="fas fa-edit"></i>
                             </a>
+                            @endif
                         </div>
                     </td>
                 </tr>

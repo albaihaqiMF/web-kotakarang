@@ -31,10 +31,11 @@
                     </div>
                 </div>
             </div>
-
+            @if (Auth::user()->role === 2)
             <x-modal title="Verifikasi Data" button="Verifikasi" color="green">
                 Apa sudah yakin untuk diverifikasi?
             </x-modal>
+            @endif
         </div>
     </div>
 </x-admin-layout>

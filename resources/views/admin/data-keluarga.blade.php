@@ -3,10 +3,12 @@
         /Data Keluarga
     </x-slot>
     <div class="container py-2 px-4">
+        @if (Auth::user()->role === 2)
         <div class="flex justify-between p-2">
             <a href="{{ route('admin.keluarga.create') }}"
                 class="bg-blue-500 rounded-md p-2 text-white hover:shadow-lg hover:bg-gray-500">Masukkan Data Baru</a>
         </div>
+        @endif
         @if (session()->has('success'))
         <x-alert-success>
             {{ session()->get('success') }}
