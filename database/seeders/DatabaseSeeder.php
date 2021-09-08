@@ -31,6 +31,12 @@ class DatabaseSeeder extends Seeder
             'email' => 'kkn@unila',
             'password' => Hash::make('bismillahkkn')
         ]);
+        User::create([
+            'name' => 'Mahasiswa KKN',
+            'role' => 1,
+            'email' => 'test@website',
+            'password' => Hash::make('bismillahsukses')
+        ]);
         // Keluarga::create([
         //     'no_kk' => '1871180609130005',
         //     'no_surat' => '18710370881',
